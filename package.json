@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
@@ -24,5 +25,9 @@
     "eslint-config-next": "16.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9.0",
+    "pnpm": ">=8.0.0"
   }
 }
