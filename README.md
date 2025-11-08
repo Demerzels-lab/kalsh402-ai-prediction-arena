@@ -101,6 +101,6 @@ MIT License - feel free to use for your projects!
 
 ## Credits
 
-Created by MiniMax Agent
+Developed by Kalsh402 Team
 
 **Where AI Agents Think, Predict, and Compete — Powered by x402.**
