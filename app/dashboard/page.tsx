@@ -82,28 +82,36 @@ export default function DashboardPage() {
     const interval = setInterval(() => {
       setFeeds(prev => {
         const agent = aiAgents[Math.floor(Math.random() * aiAgents.length)];
-        const predictions = [
-          'Bitcoin mencapai ATH baru',
-          'Tesla stock surge 15%',
-          'Fed akan cut rate bulan ini',
-          'NVIDIA akan beat earnings',
-          'Gold price tembus $2,500'
+        const enhancedPredictions = [
+          { pred: 'Bitcoin ATH $150K+ surge', reason: 'ETF inflows, institutional adoption' },
+          { pred: 'Tesla FSD Level 5 achieved', reason: 'Neural network breakthrough, safety milestone' },
+          { pred: 'Fed rate cut 0.5% emergency', reason: 'Economic indicators, market pressure' },
+          { pred: 'NVIDIA earnings beat 25%', reason: 'AI demand explosion, data center growth' },
+          { pred: 'Gold breaks $2,500 resistance', reason: 'Geopolitical tension, dollar weakness' },
+          { pred: 'Apple Vision Pro mainstream', reason: 'Price drop, killer app launched' },
+          { pred: 'Ethereum scaling success', reason: 'Layer 2 adoption, DeFi TVL growth' },
+          { pred: 'Meta AI chatbot viral', reason: 'Integration across platforms, user engagement' },
+          { pred: 'Microsoft Azure 30% growth', reason: 'Enterprise migration, AI workloads' },
+          { pred: 'Climate tipping point hit', reason: 'Temperature records, emission levels' }
         ];
+        
+        const selectedPred = enhancedPredictions[Math.floor(Math.random() * enhancedPredictions.length)];
         
         const newFeed: PredictionFeed = {
           id: `feed-${Date.now()}`,
           aiName: agent.name,
-          prediction: predictions[Math.floor(Math.random() * predictions.length)],
-          confidence: Math.floor(Math.random() * 30) + 65,
+          prediction: selectedPred.pred,
+          confidence: Math.floor(Math.random() * 35) + 65,
           result: 'PENDING',
           amount: 0.01,
           timestamp: new Date().toISOString(),
-          color: agent.color
+          color: agent.color,
+          reasoning: selectedPred.reason
         };
 
-        return [newFeed, ...prev.slice(0, 49)];
+        return [newFeed, ...prev.slice(0, 59)];
       });
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [aiAgents]);
@@ -198,46 +206,60 @@ export default function DashboardPage() {
                   <Activity className="text-green-400 animate-pulse" size={24} />
                 </div>
 
-                <div className="space-y-2 h-[600px] overflow-y-auto pr-2">
+                <div className="space-y-1 h-[600px] overflow-y-auto pr-2 bg-black rounded-lg border border-green-500/30 p-4 font-mono">
+                  <div className="text-green-400 text-xs mb-4 border-b border-green-500/30 pb-2">
+                    ┌─ LIVE PREDICTION TERMINAL ─ {new Date().toLocaleTimeString()} ─┐
+                  </div>
                   {feeds.map((feed, index) => (
                     <motion.div
                       key={feed.id}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="bg-black/40 p-4 rounded-lg border border-gray-800 hover:border-cyan-500/50 transition-all"
+                      transition={{ delay: index * 0.03 }}
+                      className={`text-xs leading-relaxed ${
+                        feed.result === 'WIN' ? 'text-green-400' :
+                        feed.result === 'LOSS' ? 'text-red-400' :
+                        'text-yellow-400'
+                      }`}
+                      style={{
+                        textShadow: '0 0 10px currentColor',
+                        fontFamily: 'monospace'
+                      }}
                     >
-                      <div className="flex items-start justify-between mb-2">
-                        <div className="flex items-center space-x-3">
-                          <span 
-                            className="font-bold text-sm"
-                            style={{ color: feed.color }}
-                          >
-                            {feed.aiName}
-                          </span>
-                          <span className="text-gray-500 text-xs">
-                            {new Date(feed.timestamp).toLocaleTimeString()}
-                          </span>
-                        </div>
-                        <span className={`text-xs font-bold px-2 py-1 rounded ${
-                          feed.result === 'WIN' ? 'bg-green-500/20 text-green-400' :
-                          feed.result === 'LOSS' ? 'bg-red-500/20 text-red-400' :
-                          'bg-yellow-500/20 text-yellow-400'
+                      <div className="flex items-center space-x-2">
+                        <span className="text-gray-500">
+                          [{new Date(feed.timestamp).toLocaleTimeString()}]
+                        </span>
+                        <span className="text-cyan-400 font-bold w-12 text-right">
+                          {feed.aiName.substring(0, 6)}
+                        </span>
+                        <span className="text-white">|</span>
+                        <span className="flex-1 truncate">
+                          {feed.prediction}
+                        </span>
+                        <span className="text-purple-400">
+                          {feed.confidence}%
+                        </span>
+                        <span className="text-white">|</span>
+                        <span className={`w-8 text-center font-bold ${
+                          feed.result === 'WIN' ? 'text-green-400' :
+                          feed.result === 'LOSS' ? 'text-red-400' :
+                          'text-yellow-400'
                         }`}>
-                          {feed.result}
+                          {feed.result === 'WIN' ? '✓' : feed.result === 'LOSS' ? '✗' : '⧖'}
+                        </span>
+                        <span className="text-gray-400">
+                          $0.01
                         </span>
                       </div>
-                      <p className="text-gray-300 text-sm mb-2">{feed.prediction}</p>
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-purple-400">
-                          Confidence: {feed.confidence}%
-                        </span>
-                        <span className="text-cyan-400">
-                          ${feed.amount.toFixed(2)}
-                        </span>
+                      <div className="text-gray-500 text-xs ml-24 mt-1 italic truncate">
+                        └─ {feed.reasoning}
                       </div>
                     </motion.div>
                   ))}
+                  <div className="text-green-400 text-xs mt-4 border-t border-green-500/30 pt-2">
+                    └─ {feeds.length} active predictions ─ Live feed updating ─┘
+                  </div>
                 </div>
               </div>
             </div>

@@ -20,6 +20,7 @@ export interface PredictionFeed {
   amount: number;
   timestamp: string;
   color: string;
+  reasoning: string;
 }
 
 export interface Market {
@@ -43,135 +44,213 @@ export const aiAgents: AIAgent[] = [
     name: 'ChatGPT',
     icon: '🤖',
     color: '#00f0ff',
-    portfolio: 15420.50,
-    roi: 154.2,
-    winRate: 67.3,
-    totalPredictions: 342,
-    profitLoss: 5420.50,
-    accuracy: 67.3
+    portfolio: 14780.00,
+    roi: 47.8,
+    winRate: 61.5,
+    totalPredictions: 231,
+    profitLoss: 4780.00,
+    accuracy: 61.5
   },
   {
     id: 'claude',
     name: 'Claude',
     icon: '🎯',
     color: '#ff00ff',
-    portfolio: 18350.25,
-    roi: 183.5,
-    winRate: 71.8,
-    totalPredictions: 298,
-    profitLoss: 8350.25,
-    accuracy: 71.8
+    portfolio: 15230.00,
+    roi: 52.3,
+    winRate: 67.5,
+    totalPredictions: 231,
+    profitLoss: 5230.00,
+    accuracy: 67.5
   },
   {
     id: 'gemini',
     name: 'Gemini',
     icon: '💎',
     color: '#b026ff',
-    portfolio: 12890.75,
-    roi: 128.9,
-    winRate: 63.2,
-    totalPredictions: 389,
-    profitLoss: 2890.75,
-    accuracy: 63.2
+    portfolio: 13890.00,
+    roi: 38.9,
+    winRate: 58.0,
+    totalPredictions: 231,
+    profitLoss: 3890.00,
+    accuracy: 58.0
   },
   {
     id: 'manus',
     name: 'Manus',
     icon: '🧠',
     color: '#00ffaa',
-    portfolio: 16720.40,
-    roi: 167.2,
-    winRate: 69.5,
-    totalPredictions: 315,
-    profitLoss: 6720.40,
-    accuracy: 69.5
+    portfolio: 14120.00,
+    roi: 41.2,
+    winRate: 59.7,
+    totalPredictions: 231,
+    profitLoss: 4120.00,
+    accuracy: 59.7
   },
   {
     id: 'grok',
     name: 'Grok',
     icon: '⚡',
     color: '#ff6b00',
-    portfolio: 14250.90,
-    roi: 142.5,
-    winRate: 65.8,
-    totalPredictions: 367,
-    profitLoss: 4250.90,
-    accuracy: 65.8
+    portfolio: 13370.00,
+    roi: 33.7,
+    winRate: 55.4,
+    totalPredictions: 231,
+    profitLoss: 3370.00,
+    accuracy: 55.4
   },
   {
     id: 'llama',
     name: 'LLaMA',
     icon: '🦙',
     color: '#ff0080',
-    portfolio: 13560.30,
-    roi: 135.6,
-    winRate: 64.1,
-    totalPredictions: 401,
-    profitLoss: 3560.30,
-    accuracy: 64.1
+    portfolio: 12910.00,
+    roi: 29.1,
+    winRate: 52.4,
+    totalPredictions: 231,
+    profitLoss: 2910.00,
+    accuracy: 52.4
   },
   {
     id: 'mistral',
     name: 'Mistral',
     icon: '🌪️',
     color: '#0080ff',
-    portfolio: 17890.60,
-    roi: 178.9,
-    winRate: 70.2,
-    totalPredictions: 287,
-    profitLoss: 7890.60,
-    accuracy: 70.2
+    portfolio: 13540.00,
+    roi: 35.4,
+    winRate: 56.7,
+    totalPredictions: 231,
+    profitLoss: 3540.00,
+    accuracy: 56.7
   },
   {
     id: 'perplexity',
     name: 'Perplexity',
     icon: '🔍',
     color: '#00fff0',
-    portfolio: 15980.45,
-    roi: 159.8,
-    winRate: 68.7,
-    totalPredictions: 329,
-    profitLoss: 5980.45,
-    accuracy: 68.7
+    portfolio: 14460.00,
+    roi: 44.6,
+    winRate: 63.2,
+    totalPredictions: 231,
+    profitLoss: 4460.00,
+    accuracy: 63.2
   }
 ];
 
 export const generatePredictionFeeds = (): PredictionFeed[] => {
-  const predictions = [
-    'Bitcoin akan mencapai $100K dalam 24 jam',
-    'Tesla Q4 earnings akan beat expectations',
-    'Fed akan mempertahankan suku bunga',
-    'Ethereum akan flip Bitcoin dalam market cap',
-    'Apple akan mengumumkan AI breakthrough',
-    'S&P 500 akan naik 2% minggu ini',
-    'USD/EUR akan turun ke 1.05',
-    'NVIDIA akan split saham lagi',
-    'Meta akan meluncurkan AI chatbot baru',
-    'Gold akan tembus $2,200/oz',
-    'Dogecoin akan pump 50% hari ini',
-    'Amazon Prime Day sales record breaking',
-    'Microsoft akan akuisisi startup AI',
-    'Oil prices akan naik ke $95/barrel',
-    'Netflix subscriber growth beats forecast'
+  const enhancedPredictions = [
+    {
+      prediction: 'Bitcoin ATH $150K+ Q4 2025',
+      reasoning: 'Strong institutional adoption, ETF inflows, halving effect',
+      confidence: [85, 92, 78, 89, 76, 71, 82, 87]
+    },
+    {
+      prediction: 'Avatar 3 Box Office $3B+ worldwide',
+      reasoning: 'Franchise popularity, advanced technology, marketing power',
+      confidence: [92, 89, 85, 87, 83, 79, 86, 90]
+    },
+    {
+      prediction: 'Tesla Stock $800+ per share',
+      reasoning: 'FSD progress, robotaxi potential, market position',
+      confidence: [78, 82, 74, 80, 72, 69, 76, 81]
+    },
+    {
+      prediction: 'Apple Vision Pro 5M+ sales 2025',
+      reasoning: 'Price reduction, app ecosystem growth, enterprise adoption',
+      confidence: [68, 71, 65, 73, 62, 58, 69, 75]
+    },
+    {
+      prediction: 'GPT-5 launch Q3 2025',
+      reasoning: 'OpenAI roadmap, competitive pressure, capability leaps',
+      confidence: [91, 87, 83, 89, 85, 82, 88, 93]
+    },
+    {
+      prediction: 'NVIDIA stock split again 2025',
+      reasoning: 'AI boom momentum, high share price, investor accessibility',
+      confidence: [85, 89, 81, 87, 79, 75, 83, 88]
+    },
+    {
+      prediction: 'Ethereum $8K+ breakthrough',
+      reasoning: 'Ethereum 2.0 upgrades, DeFi growth, institutional interest',
+      confidence: [79, 83, 75, 81, 73, 70, 77, 84]
+    },
+    {
+      prediction: 'Meta stock $800+ recovery',
+      reasoning: 'Metaverse adoption, AI advertising revenue, VR mainstream',
+      confidence: [72, 76, 68, 74, 66, 63, 71, 78]
+    },
+    {
+      prediction: 'Olympics 2025 record viewership',
+      reasoning: 'Global sports appetite, technological broadcast innovation',
+      confidence: [82, 85, 78, 83, 76, 73, 80, 87]
+    },
+    {
+      prediction: 'Nintendo Switch 2 launch success',
+      reasoning: 'Hardware upgrade demand, backwards compatibility, exclusive titles',
+      confidence: [94, 91, 87, 93, 89, 86, 92, 96]
+    },
+    {
+      prediction: 'GTA 6 no delay to 2026',
+      reasoning: 'Development progress, marketing timeline, fan anticipation',
+      confidence: [76, 79, 72, 77, 74, 71, 75, 81]
+    },
+    {
+      prediction: 'US avoids recession 2025',
+      reasoning: 'Economic indicators, Fed policy effectiveness, consumer spending',
+      confidence: [69, 73, 65, 71, 67, 64, 70, 75]
+    },
+    {
+      prediction: 'Climate temperature record 2025',
+      reasoning: 'Global warming trend, El Niño effects, emission levels',
+      confidence: [88, 92, 84, 90, 86, 83, 89, 94]
+    },
+    {
+      prediction: 'Solana $500+ price target',
+      reasoning: 'DeFi ecosystem growth, institutional adoption, scalability',
+      confidence: [74, 78, 70, 76, 72, 69, 75, 80]
+    },
+    {
+      prediction: 'Google stock $200+ milestone',
+      reasoning: 'Gemini AI dominance, cloud growth acceleration, ad revenue',
+      confidence: [81, 85, 77, 83, 79, 76, 82, 87]
+    },
+    {
+      prediction: 'Fed rates below 3% end 2025',
+      reasoning: 'Economic slowdown signals, inflation control, market pressure',
+      confidence: [63, 67, 59, 65, 61, 58, 64, 69]
+    },
+    {
+      prediction: 'SpaceX Mars mission launch',
+      reasoning: 'Starship development, technical milestones, timeline pressure',
+      confidence: [58, 62, 54, 60, 56, 53, 59, 64]
+    },
+    {
+      prediction: 'Mbappe Ballon d\'Or winner 2025',
+      reasoning: 'Real Madrid performance, World Cup qualifiers, goal scoring',
+      confidence: [77, 81, 73, 79, 75, 72, 78, 83]
+    }
   ];
 
   const feeds: PredictionFeed[] = [];
   
-  for (let i = 0; i < 50; i++) {
-    const agent = aiAgents[Math.floor(Math.random() * aiAgents.length)];
-    const prediction = predictions[Math.floor(Math.random() * predictions.length)];
+  for (let i = 0; i < 60; i++) {
+    const agent = aiAgents[i % aiAgents.length];
+    const predictionData = enhancedPredictions[i % enhancedPredictions.length];
+    const confidence = predictionData.confidence[i % aiAgents.length];
+    
     const result: 'WIN' | 'LOSS' | 'PENDING' = 
-      i < 10 ? 'PENDING' : (Math.random() > 0.35 ? 'WIN' : 'LOSS');
+      i < 15 ? 'PENDING' : (Math.random() > 0.4 ? 'WIN' : 'LOSS');
     
     feeds.push({
       id: `feed-${i}`,
       aiName: agent.name,
-      prediction,
-      confidence: Math.floor(Math.random() * 40) + 60,
+      prediction: predictionData.prediction,
+      confidence: confidence,
       result,
       amount: 0.01,
-      timestamp: new Date(Date.now() - i * 60000).toISOString(),
-      color: agent.color
+      timestamp: new Date(Date.now() - i * 45000).toISOString(),
+      color: agent.color,
+      reasoning: predictionData.reasoning
     });
   }
 
