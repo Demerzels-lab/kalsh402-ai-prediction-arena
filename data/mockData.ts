@@ -1385,6 +1385,236 @@ export const markets2025: Market[] = [
       { name: 'Perplexity', confidence: 68, stance: 'NO' }
     ],
     description: 'Market SpaceX Mars mission timeline dengan Starship development dan technical challenges.'
+  },
+
+  // FINAL 16 MARKETS TO REACH 100 TOTAL
+
+  // POLITICS & WORLD EVENTS (8 markets)
+  {
+    id: 'trump-2024-win-2025',
+    title: 'Donald Trump akan memenangkan US Presidential Election 2024?',
+    category: 'Politics',
+    yesOdds: 52,
+    noOdds: 48,
+    volume: 2345000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 57, stance: 'YES' },
+      { name: 'ChatGPT', confidence: 54, stance: 'YES' },
+      { name: 'Perplexity', confidence: 51, stance: 'YES' }
+    ],
+    description: 'Prediksi Trump vs Biden rematch dengan polling data dan swing states analysis.'
+  },
+  {
+    id: 'ukraine-war-end-2025',
+    title: 'Ukraine-Russia war akan berakhir dengan peace deal di 2025?',
+    category: 'Politics',
+    yesOdds: 34,
+    noOdds: 66,
+    volume: 1987000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 71, stance: 'NO' },
+      { name: 'Perplexity', confidence: 68, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 65, stance: 'NO' }
+    ],
+    description: 'Market tentang resolusi konflik Ukraine dengan diplomatic negotiations dan geopolitical factors.'
+  },
+  {
+    id: 'xi-putin-meeting-2025',
+    title: 'Xi Jinping dan Putin akan bertemu secara bilateral 5+ kali di 2025?',
+    category: 'Politics',
+    yesOdds: 67,
+    noOdds: 33,
+    volume: 876000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 74, stance: 'YES' },
+      { name: 'ChatGPT', confidence: 71, stance: 'YES' },
+      { name: 'Mistral', confidence: 68, stance: 'YES' }
+    ],
+    description: 'Prediksi intensitas China-Russia diplomatic relations dengan frequency of leader meetings.'
+  },
+  {
+    id: 'nato-new-member-2025',
+    title: 'NATO akan menerima new member country dalam 2025?',
+    category: 'Politics',
+    yesOdds: 41,
+    noOdds: 59,
+    volume: 1234000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 64, stance: 'NO' },
+      { name: 'Perplexity', confidence: 61, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 58, stance: 'NO' }
+    ],
+    description: 'Market NATO expansion dengan potential candidates dan geopolitical considerations.'
+  },
+  {
+    id: 'taiwan-election-2025',
+    title: 'Taiwan akan elect pro-independence president di 2025?',
+    category: 'Politics',
+    yesOdds: 58,
+    noOdds: 42,
+    volume: 1567000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 65, stance: 'YES' },
+      { name: 'ChatGPT', confidence: 62, stance: 'YES' },
+      { name: 'Perplexity', confidence: 59, stance: 'YES' }
+    ],
+    description: 'Prediksi Taiwan presidential election outcome dengan China relations implications.'
+  },
+  {
+    id: 'iran-nuclear-deal-2025',
+    title: 'Iran akan return to nuclear compliance deal dalam 2025?',
+    category: 'Politics',
+    yesOdds: 29,
+    noOdds: 71,
+    volume: 1123000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 76, stance: 'NO' },
+      { name: 'Perplexity', confidence: 73, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 70, stance: 'NO' }
+    ],
+    description: 'Market Iran nuclear program compliance dengan international sanctions dan diplomatic pressure.'
+  },
+  {
+    id: 'india-china-border-2025',
+    title: 'India-China akan resolve border dispute peacefully di 2025?',
+    category: 'Politics',
+    yesOdds: 22,
+    noOdds: 78,
+    volume: 987000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 83, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 80, stance: 'NO' },
+      { name: 'Mistral', confidence: 77, stance: 'NO' }
+    ],
+    description: 'Prediksi resolusi Ladakh border tensions dengan diplomatic breakthrough possibilities.'
+  },
+  {
+    id: 'brexit-rejoin-talk-2025',
+    title: 'UK akan officially start EU rejoin discussions di 2025?',
+    category: 'Politics',
+    yesOdds: 15,
+    noOdds: 85,
+    volume: 789000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 90, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 87, stance: 'NO' },
+      { name: 'Perplexity', confidence: 84, stance: 'NO' }
+    ],
+    description: 'Market UK rejoining EU discussions dengan public sentiment dan political feasibility analysis.'
+  },
+
+  // FINAL MIXED CATEGORIES (8 markets)
+  {
+    id: 'openai-ipo-2025',
+    title: 'OpenAI akan go public dengan IPO di 2025?',
+    category: 'Tech',
+    yesOdds: 43,
+    noOdds: 57,
+    volume: 1789000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 62, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 59, stance: 'NO' },
+      { name: 'Mistral', confidence: 56, stance: 'NO' }
+    ],
+    description: 'Prediksi OpenAI IPO timeline dengan valuation expectations dan market readiness.'
+  },
+  {
+    id: 'vr-headset-50m-2025',
+    title: 'VR headsets akan sell 50M+ units globally di 2025?',
+    category: 'Tech',
+    yesOdds: 35,
+    noOdds: 65,
+    volume: 1234000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 70, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 67, stance: 'NO' },
+      { name: 'Manus', confidence: 64, stance: 'NO' }
+    ],
+    description: 'Market VR adoption rate dengan Meta Quest, Apple Vision Pro, dan competitor growth.'
+  },
+  {
+    id: 'autonomous-taxi-commercial-2025',
+    title: 'Full autonomous taxis akan commercially available di 5+ cities?',
+    category: 'Tech',
+    yesOdds: 48,
+    noOdds: 52,
+    volume: 1456000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 57, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 54, stance: 'NO' },
+      { name: 'Perplexity', confidence: 51, stance: 'NO' }
+    ],
+    description: 'Prediksi Level 5 autonomous taxi deployment dengan Waymo, Cruise, dan Tesla expansion.'
+  },
+  {
+    id: 'lab-grown-meat-mainstream-2025',
+    title: 'Lab-grown meat akan available di mainstream supermarkets 2025?',
+    category: 'Climate',
+    yesOdds: 31,
+    noOdds: 69,
+    volume: 876000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 74, stance: 'NO' },
+      { name: 'Perplexity', confidence: 71, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 68, stance: 'NO' }
+    ],
+    description: 'Market cultured meat mainstream availability dengan cost reduction dan regulatory approval.'
+  },
+  {
+    id: 'nuclear-fusion-breakthrough-2025',
+    title: 'Nuclear fusion akan achieve net energy gain breakthrough di 2025?',
+    category: 'Tech',
+    yesOdds: 37,
+    noOdds: 63,
+    volume: 1123000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 68, stance: 'NO' },
+      { name: 'Mistral', confidence: 65, stance: 'NO' },
+      { name: 'Perplexity', confidence: 62, stance: 'NO' }
+    ],
+    description: 'Prediksi fusion energy milestone dengan ITER, NIF, dan private fusion companies progress.'
+  },
+  {
+    id: 'brain-computer-interface-fda-2025',
+    title: 'Brain-computer interface akan get FDA approval for consumers?',
+    category: 'Tech',
+    yesOdds: 24,
+    noOdds: 76,
+    volume: 987000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 81, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 78, stance: 'NO' },
+      { name: 'Manus', confidence: 75, stance: 'NO' }
+    ],
+    description: 'Market Neuralink dan competitor BCI devices mendapat FDA approval untuk consumer use.'
+  },
+  {
+    id: 'quantum-computer-1million-qubits-2025',
+    title: 'Quantum computer akan achieve 1 million+ qubits di 2025?',
+    category: 'Tech',
+    yesOdds: 19,
+    noOdds: 81,
+    volume: 654000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 86, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 83, stance: 'NO' },
+      { name: 'Mistral', confidence: 80, stance: 'NO' }
+    ],
+    description: 'Prediksi quantum computing scale-up dengan IBM, Google, dan IonQ qubit milestones.'
+  },
+  {
+    id: 'longevity-drug-fda-approval-2025',
+    title: 'Anti-aging longevity drug akan get FDA approval di 2025?',
+    category: 'Tech',
+    yesOdds: 16,
+    noOdds: 84,
+    volume: 543000,
+    topAIConfidence: [
+      { name: 'Claude', confidence: 89, stance: 'NO' },
+      { name: 'ChatGPT', confidence: 86, stance: 'NO' },
+      { name: 'Perplexity', confidence: 83, stance: 'NO' }
+    ],
+    description: 'Market anti-aging therapeutic approval dengan senolytic drugs dan longevity research breakthroughs.'
   }
 ];
 

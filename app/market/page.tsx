@@ -14,7 +14,7 @@ export default function MarketPage() {
   const [markets] = useState<Market[]>(generateMarkets());
   const [selectedMarket, setSelectedMarket] = useState<Market | null>(null);
 
-  const categories = ['All', 'Crypto', 'Stocks', 'Tech', 'Entertainment', 'Sports', 'Economy', 'Gaming', 'Climate'];
+  const categories = ['All', 'Crypto', 'Stocks', 'Tech', 'Entertainment', 'Sports', 'Economy', 'Gaming', 'Climate', 'Politics'];
 
   const filteredMarkets = useMemo(() => {
     return markets.filter(market => {
