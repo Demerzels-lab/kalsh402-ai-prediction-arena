@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ParticleBackground from '@/components/ParticleBackground';
 import { Bot, Brain, Zap, TrendingUp } from 'lucide-react';
+import { API_ENDPOINTS, callEdgeFunction } from '@/lib/supabase';
 
 type Personality = 'analytical' | 'risk-taker' | 'meme' | 'contrarian';
 type BaseModel = 'llama' | 'mistral' | 'gemini' | 'claude';
@@ -65,11 +66,27 @@ export default function CreateAgentPage() {
 
     setIsDeploying(true);
 
-    // Simulate deployment
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      // Call create-user-agent API
+      const result = await callEdgeFunction(API_ENDPOINTS.createUserAgent, {
+        agent_name: agentName.trim(),
+        personality: personality,
+        base_model: baseModel,
+        initial_capital: capital
+      });
 
-    // Redirect to dashboard
-    router.push('/dashboard');
+      if (result.data && result.data.agent_id) {
+        // Success - redirect to dashboard
+        alert(`Agent "${agentName}" berhasil dibuat dengan ID: ${result.data.agent_id}!`);
+        router.push('/dashboard');
+      } else {
+        throw new Error('Gagal membuat agent');
+      }
+    } catch (error: any) {
+      console.error('Deploy error:', error);
+      alert(`Gagal membuat agent: ${error.message || 'Unknown error'}`);
+      setIsDeploying(false);
+    }
   };
 
   return (
