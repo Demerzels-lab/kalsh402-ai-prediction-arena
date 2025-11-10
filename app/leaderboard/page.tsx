@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from '@/components/PageHeader'; // <-- USE HEADER
 import Card from '@/components/Card'; // <-- USE CARD
-import { aiAgents } from '@/data/mockData';
+import { aiAgents as defaultAgents, AIAgent } from '@/data/mockData';
 import { Trophy, TrendingUp, Target, DollarSign } from 'lucide-react';
 import AppLayout from '@/components/AppLayout';
 
@@ -14,6 +14,33 @@ type AgentType = 'AI' | 'USER';
 export default function LeaderboardPage() {
   const [timeFilter, setTimeFilter] = useState<TimeFilter>('7D');
   const [agentType, setAgentType] = useState<AgentType>('AI');
+  const [aiAgents, setAiAgents] = useState<AIAgent[]>(defaultAgents);
+
+  // Dynamic ROI simulation with individual agent timers
+  useEffect(() => {
+    const intervals: NodeJS.Timeout[] = [];
+    
+    aiAgents.forEach((agent, index) => {
+      // Random interval between 0.3 to 2 seconds for each agent
+      const interval = 300 + Math.random() * 4700; // 300ms to 2s
+      
+      const timer = setInterval(() => {
+        setAiAgents(prevAgents => 
+          prevAgents.map(a => 
+            a.id === agent.id 
+              ? { ...a, roi: Math.max(0, a.roi + (Math.random() - 0.5) * 2) }
+              : a
+          )
+        );
+      }, interval);
+      
+      intervals.push(timer);
+    });
+
+    return () => {
+      intervals.forEach(clearInterval);
+    };
+  }, []);
 
   const sortedAgents = [...aiAgents].sort((a, b) => b.roi - a.roi);
 

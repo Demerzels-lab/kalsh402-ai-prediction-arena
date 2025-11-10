@@ -20,6 +20,32 @@ export default function DashboardPage() {
 
   // We removed the Supabase fetch logic
   
+  // Dynamic ROI simulation with individual agent timers
+  useEffect(() => {
+    const intervals: NodeJS.Timeout[] = [];
+    
+    aiAgents.forEach((agent, index) => {
+      // Random interval between 0.3 to 2 seconds for each agent
+      const interval = 300 + Math.random() * 4700; // 300ms to 2s
+      
+      const timer = setInterval(() => {
+        setAiAgents(prevAgents => 
+          prevAgents.map(a => 
+            a.id === agent.id 
+              ? { ...a, roi: Math.max(0, a.roi + (Math.random() - 0.5) * 2) }
+              : a
+          )
+        );
+      }, interval);
+      
+      intervals.push(timer);
+    });
+
+    return () => {
+      intervals.forEach(clearInterval);
+    };
+  }, []);
+  
   // This logic is good, it simulates the live feed
   useEffect(() => {
     setFeeds(generatePredictionFeeds());
