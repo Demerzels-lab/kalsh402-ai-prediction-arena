@@ -15,7 +15,7 @@ export default function PageHeader({ title, description, icon: Icon }: PageHeade
       className="mb-12" // Consistent margin-bottom
     >
       {Icon && (
-        <div className="flex justify-center mb-4">
+        <div className="">
           <Icon className="text-primary" size={64} />
         </div>
       )}

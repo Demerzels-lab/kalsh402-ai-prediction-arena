@@ -17,7 +17,7 @@ export default function PageLayout({ children }: PageLayoutProps) {
         - px-4 (for mobile)
         - pb-12 (for footer spacing)
       */}
-      <main className="relative z-10 max-w-7xl mx-auto pt-24 pb-12 px-4">
+      <main className="relative-w-7xl mx-auto px-4">
         {children}
       </main>
       <Footer />

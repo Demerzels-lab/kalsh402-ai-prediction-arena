@@ -81,8 +81,8 @@ export default function CreateAgentPage() {
       <ParticleBackground />
       <Navbar />
 
-      <main className="pt-24 pb-12 px-4">
-        <div className="max-w-4xl mx-auto">
+      <main className="pt-24 pb-12 mx-44">
+        <div className="mx-30">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

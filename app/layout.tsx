@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Orbitron } from 'next/font/google'; // Import fonts
+import { Inter, Orbitron } from 'next/font/google';
 import "./globals.css";
 
 // Setup font variables
@@ -26,7 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`font-sans antialiased ${inter.variable} ${orbitron.variable}`}>
+      {/* Apply the font variables and base styling */}
+      <body className={`font-sans antialiased bg-background text-foreground ${inter.variable} ${orbitron.variable}`}>
         {children}
       </body>
     </html>
