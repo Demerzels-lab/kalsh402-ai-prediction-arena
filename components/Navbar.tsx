@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Bot, TrendingUp, Trophy, Store, Menu, X } from 'lucide-react';
+import { Bot, TrendingUp, Trophy, Store, Menu, X, Brain } from 'lucide-react';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -14,6 +14,7 @@ export default function Navbar() {
     { href: '/leaderboard', label: 'Leaderboard', icon: Trophy },
     { href: '/market', label: 'Event Market', icon: TrendingUp },
     { href: '/create-agent', label: 'Create Agent', icon: Store },
+    { href: '/analysis', label: 'AI Analysis', icon: Brain },
   ];
 
   return (
