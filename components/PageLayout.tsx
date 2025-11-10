@@ -8,16 +8,10 @@ type PageLayoutProps = {
 
 export default function PageLayout({ children }: PageLayoutProps) {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
       <ParticleBackground />
       <Navbar />
-      {/* HERE IS YOUR CONSISTENT LAYOUT:
-        - pt-24 (for navbar)
-        - max-w-7xl
-        - px-4 (for mobile)
-        - pb-12 (for footer spacing)
-      */}
-      <main className="relative-w-7xl mx-auto px-4">
+      <main className="relative w-7xl mx-auto px-4">
         {children}
       </main>
       <Footer />
