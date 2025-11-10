@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import PageLayout from '@/components/PageLayout'; // <-- USE LAYOUT
 import PageHeader from '@/components/PageHeader'; // <-- USE HEADER
 import Card from '@/components/Card'; // <-- USE CARD
 import { aiAgents } from '@/data/mockData';
@@ -28,62 +27,62 @@ export default function LeaderboardPage() {
   return (
     <AppLayout>
 
-      <PageLayout>
-        {/* 2. Replace the old header with our new component */}
-        <PageHeader 
-          title="LEADERBOARD"
-          description="Ranking terbaik AI agents berdasarkan performa prediksi"
-          icon={Trophy} // Pass the icon
-        />
+      {/* 2. Replace the old header with our new component */}
+      <PageHeader 
+        title="LEADERBOARD"
+        description="Ranking terbaik AI agents berdasarkan performa prediksi"
+        icon={Trophy} // Pass the icon
+      />
 
-        {/* Filters */}
-        <div className="flex flex-col sm:flex-row justify-between items-center mb-6 md:mb-8 gap-4 px-4 md:px-0"> {/* Added mobile padding */}
-          {/* Agent Type Toggle */}
-          <div className="flex rounded-lg overflow-hidden border border-cyan-500/30">
-            <button
-              onClick={() => setAgentType('AI')}
-              className={`px-4 md:px-6 py-2 md:py-3 font-bold text-sm md:text-base transition-all ${
-                agentType === 'AI'
-                  ? 'bg-cyan-500 text-black'
-                  : 'bg-transparent text-gray-400 hover:text-cyan-400'
-              }`}
-            >
-              AI Agents
-            </button>
-            <button
-              onClick={() => setAgentType('USER')}
-              className={`px-4 md:px-6 py-2 md:py-3 font-bold text-sm md:text-base transition-all ${
-                agentType === 'USER'
-                  ? 'bg-magenta-500 text-black'
-                  : 'bg-transparent text-gray-400 hover:text-magenta-400'
-              }`}
-            >
-              User Agents
-            </button>
-          </div>
-
-          {/* Time Filter */}
-          <div className="flex space-x-2">
-            {(['24H', '7D', '30D'] as TimeFilter[]).map(filter => (
-              <button
-                key={filter}
-                onClick={() => setTimeFilter(filter)}
-                className={`px-3 md:px-4 py-2 rounded-lg font-bold text-sm md:text-base transition-all ${
-                  timeFilter === filter
-                    ? 'bg-purple-500 text-white glow-magenta'
-                    : 'border border-purple-500/30 text-purple-400 hover:bg-purple-500/10'
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
+      {/* Filters */}
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 md:mb-8 gap-4">
+        {/* Agent Type Toggle */}
+        <div className="flex rounded-lg overflow-hidden border border-cyan-500/30">
+          <button
+            onClick={() => setAgentType('AI')}
+            className={`px-4 md:px-6 py-2 md:py-3 font-bold text-sm md:text-base transition-all ${
+              agentType === 'AI'
+                ? 'bg-cyan-500 text-black'
+                : 'bg-transparent text-gray-400 hover:text-cyan-400'
+            }`}
+          >
+            AI Agents
+          </button>
+          <button
+            onClick={() => setAgentType('USER')}
+            className={`px-4 md:px-6 py-2 md:py-3 font-bold text-sm md:text-base transition-all ${
+              agentType === 'USER'
+                ? 'bg-magenta-500 text-black'
+                : 'bg-transparent text-gray-400 hover:text-magenta-400'
+            }`}
+          >
+            User Agents
+          </button>
         </div>
 
-        {/* 3. Replace the glassmorphism div with our <Card> component */}
-        <Card className="overflow-hidden p-0 px-4 md:px-0"> {/* Added mobile padding */}
+        {/* Time Filter */}
+        <div className="flex space-x-2">
+          {(['24H', '7D', '30D'] as TimeFilter[]).map(filter => (
+            <button
+              key={filter}
+              onClick={() => setTimeFilter(filter)}
+              className={`px-3 md:px-4 py-2 rounded-lg font-bold text-sm md:text-base transition-all ${
+                timeFilter === filter
+                  ? 'bg-purple-500 text-white glow-magenta'
+                  : 'border border-purple-500/30 text-purple-400 hover:bg-purple-500/10'
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* 3. Replace the glassmorphism div with our <Card> component */}
+      <Card className="overflow-hidden p-0">
+        <div className="overflow-x-auto">
           {/* Table Header */}
-          <div className="bg-gradient-to-r from-cyan-500/20 to-magenta-500/20 px-4 md:px-6 py-3 md:py-4 border-b border-cyan-500/30">
+          <div className="bg-gradient-to-r from-cyan-500/20 to-magenta-500/20 px-4 md:px-6 py-3 md:py-4 border-b border-cyan-500/30 min-w-[600px]">
             <div className="grid grid-cols-7 gap-2 md:gap-4 font-bold text-xs md:text-sm text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
               <div>RANK</div>
               <div className="col-span-2">AGENT</div>
@@ -95,7 +94,7 @@ export default function LeaderboardPage() {
           </div>
 
           {/* Table Body */}
-          <div className="divide-y divide-gray-800">
+          <div className="divide-y divide-gray-800 min-w-[600px]">
             {agentType === 'AI' ? (
               sortedAgents.map((agent, index) => (
                 <motion.div
@@ -182,65 +181,65 @@ export default function LeaderboardPage() {
               </div>
             )}
           </div>
-        </Card>
-
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12 px-4 md:px-0"> {/* Added mobile padding and single column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="glassmorphism p-4 md:p-6 rounded-xl border border-cyan-500/30"
-          >
-            <div className="flex items-center justify-between mb-3 md:mb-4">
-              <h3 className="text-base md:text-lg font-bold text-cyan-400">Best ROI</h3>
-              <Trophy className="text-yellow-400" size={24} />
-            </div>
-            <p className="text-2xl md:text-3xl font-bold text-green-400">
-              +{sortedAgents[0]?.roi}%
-            </p>
-            <p className="text-sm text-gray-400 mt-2">
-              {sortedAgents[0]?.name}
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="glassmorphism p-4 md:p-6 rounded-xl border border-purple-500/30"
-          >
-            <div className="flex items-center justify-between mb-3 md:mb-4">
-              <h3 className="text-base md:text-lg font-bold text-purple-400">Highest Win Rate</h3>
-              <Target className="text-purple-400" size={24} />
-            </div>
-            <p className="text-2xl md:text-3xl font-bold text-purple-400">
-              {Math.max(...aiAgents.map(a => a.winRate))}%
-            </p>
-            <p className="text-sm text-gray-400 mt-2">
-              {aiAgents.find(a => a.winRate === Math.max(...aiAgents.map(x => x.winRate)))?.name}
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="glassmorphism p-4 md:p-6 rounded-xl border border-magenta-500/30"
-          >
-            <div className="flex items-center justify-between mb-3 md:mb-4">
-              <h3 className="text-base md:text-lg font-bold text-magenta-400">Most Active</h3>
-              <TrendingUp className="text-magenta-400" size={24} />
-            </div>
-            <p className="text-2xl md:text-3xl font-bold text-magenta-400">
-              {Math.max(...aiAgents.map(a => a.totalPredictions))}
-            </p>
-            <p className="text-sm text-gray-400 mt-2">
-              {aiAgents.find(a => a.totalPredictions === Math.max(...aiAgents.map(x => x.totalPredictions)))?.name}
-            </p>
-          </motion.div>
         </div>
-      </PageLayout>
+      </Card>
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="glassmorphism p-4 md:p-6 rounded-xl border border-cyan-500/30"
+        >
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h3 className="text-base md:text-lg font-bold text-cyan-400">Best ROI</h3>
+            <Trophy className="text-yellow-400" size={24} />
+          </div>
+          <p className="text-2xl md:text-3xl font-bold text-green-400">
+            +{sortedAgents[0]?.roi}%
+          </p>
+          <p className="text-sm text-gray-400 mt-2">
+            {sortedAgents[0]?.name}
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="glassmorphism p-4 md:p-6 rounded-xl border border-purple-500/30"
+        >
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h3 className="text-base md:text-lg font-bold text-purple-400">Highest Win Rate</h3>
+            <Target className="text-purple-400" size={24} />
+          </div>
+          <p className="text-2xl md:text-3xl font-bold text-purple-400">
+            {Math.max(...aiAgents.map(a => a.winRate))}%
+          </p>
+          <p className="text-sm text-gray-400 mt-2">
+            {aiAgents.find(a => a.winRate === Math.max(...aiAgents.map(x => x.winRate)))?.name}
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="glassmorphism p-4 md:p-6 rounded-xl border border-magenta-500/30"
+        >
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h3 className="text-base md:text-lg font-bold text-magenta-400">Most Active</h3>
+            <TrendingUp className="text-magenta-400" size={24} />
+          </div>
+          <p className="text-2xl md:text-3xl font-bold text-magenta-400">
+            {Math.max(...aiAgents.map(a => a.totalPredictions))}
+          </p>
+          <p className="text-sm text-gray-400 mt-2">
+            {aiAgents.find(a => a.totalPredictions === Math.max(...aiAgents.map(x => x.totalPredictions)))?.name}
+          </p>
+        </motion.div>
+      </div>
     </AppLayout>
   );
 }
