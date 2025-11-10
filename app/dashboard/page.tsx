@@ -8,44 +8,12 @@ import ParticleBackground from '@/components/ParticleBackground';
 import { aiAgents as defaultAgents, generatePredictionFeeds, PredictionFeed, AIAgent } from '@/data/mockData';
 import { TrendingUp, TrendingDown, Activity, DollarSign } from 'lucide-react';
 import Link from 'next/link';
-import { API_ENDPOINTS, callEdgeFunction } from '@/lib/supabase';
 
 export default function DashboardPage() {
   const [feeds, setFeeds] = useState<PredictionFeed[]>([]);
   const [selectedAgent, setSelectedAgent] = useState<string | null>(null);
   const [aiAgents, setAiAgents] = useState<AIAgent[]>(defaultAgents);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Fetch all agents (system + user agents)
-  const fetchAllAgents = async () => {
-    try {
-      const result = await callEdgeFunction(API_ENDPOINTS.getAllAgents);
-      
-      if (result.data && Array.isArray(result.data)) {
-        // Map backend data to frontend format
-        const mappedAgents: AIAgent[] = result.data.map((agent: any) => ({
-          id: agent.id || agent.agent_id,
-          name: agent.name || agent.agent_name,
-          icon: agent.icon || getIconForAgent(agent),
-          color: agent.color || getColorForAgent(agent),
-          portfolio: agent.portfolio || agent.initial_capital || 100,
-          roi: agent.roi || 0,
-          winRate: agent.win_rate || agent.winRate || 0,
-          totalPredictions: agent.total_predictions || agent.totalPredictions || 0,
-          profitLoss: agent.profit_loss || agent.profitLoss || 0,
-          accuracy: agent.accuracy || agent.win_rate || 0
-        }));
-        
-        setAiAgents(mappedAgents);
-      }
-    } catch (error) {
-      console.error('Error fetching agents:', error);
-      // Fallback ke default agents jika error
-      setAiAgents(defaultAgents);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
   // Helper function untuk generate icon berdasarkan personality
   const getIconForAgent = (agent: any) => {
@@ -62,18 +30,6 @@ export default function DashboardPage() {
     const hash = (agent.agent_name || agent.name || '').split('').reduce((acc: number, char: string) => acc + char.charCodeAt(0), 0);
     return colors[hash % colors.length];
   };
-
-  useEffect(() => {
-    // Initial fetch
-    fetchAllAgents();
-
-    // Auto-refresh setiap 30 detik untuk update portfolio
-    const refreshInterval = setInterval(() => {
-      fetchAllAgents();
-    }, 30000);
-
-    return () => clearInterval(refreshInterval);
-  }, []);
 
   useEffect(() => {
     setFeeds(generatePredictionFeeds());
