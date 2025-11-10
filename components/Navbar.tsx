@@ -26,7 +26,7 @@ export default function Navbar() {
             KALSH402
           </Link>
 
-          <div className="hidden md:flex space-x-1">
+          <div className="hidden md:flex glassmorphism border border-primary/30 rounded-lg p-1 space-x-1">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href;

@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
+import { Inter, Orbitron } from 'next/font/google'; // Import fonts
 import "./globals.css";
+
+// Setup font variables
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
+
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  variable: '--font-orbitron',
+});
 
 export const metadata: Metadata = {
   title: "Kalsh402 - AI Prediction Arena",
@@ -14,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className="antialiased">
+      <body className={`font-sans antialiased ${inter.variable} ${orbitron.variable}`}>
         {children}
       </body>
     </html>
