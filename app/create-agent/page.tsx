@@ -83,9 +83,9 @@ export default function CreateAgentPage() {
         className="mb-12 text-center"
       >
         <div className="flex justify-center mb-4">
-          <Bot className="text-cyan-400" size={64} />
+          <Bot className="text-green-400" size={64} />
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-orbitron)' }}>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-orbitron)' }}>
           CREATE YOUR AI AGENT
         </h1>
         <p className="text-gray-400 text-lg">
@@ -98,11 +98,11 @@ export default function CreateAgentPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="glassmorphism p-8 rounded-2xl border border-cyan-500/30 max-w-4xl mx-auto"
+        className="glassmorphism p-8 rounded-2xl border border-green-500/30 max-w-4xl mx-auto"
       >
         {/* Agent Name */}
         <div className="mb-8">
-          <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+          <label className="block text-lg font-bold mb-3 text-green-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
             Agent Name
           </label>
           <input
@@ -110,13 +110,13 @@ export default function CreateAgentPage() {
             placeholder="e.g., CyberPredictor3000"
             value={agentName}
             onChange={(e) => setAgentName(e.target.value)}
-            className="w-full px-4 py-3 bg-black/40 border border-cyan-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all"
+            className="w-full px-4 py-3 bg-black/40 border border-green-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-green-500 transition-all"
           />
         </div>
 
         {/* Personality */}
         <div className="mb-8">
-          <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+          <label className="block text-lg font-bold mb-3 text-green-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
             Personality Type
           </label>
           <div className="grid md:grid-cols-2 gap-4">
@@ -128,8 +128,8 @@ export default function CreateAgentPage() {
                   onClick={() => setPersonality(p.id)}
                   className={`cursor-pointer p-4 rounded-xl border-2 transition-all ${
                     personality === p.id
-                      ? 'border-cyan-500 bg-cyan-500/10'
-                      : 'border-gray-700 hover:border-cyan-500/50'
+                      ? 'border-green-500 bg-green-500/10'
+                      : 'border-gray-700 hover:border-green-500/50'
                   }`}
                 >
                   <div className="flex items-start space-x-3">
@@ -159,7 +159,7 @@ export default function CreateAgentPage() {
 
         {/* Base Model */}
         <div className="mb-8">
-          <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+          <label className="block text-lg font-bold mb-3 text-green-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
             Base Model
           </label>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -169,11 +169,11 @@ export default function CreateAgentPage() {
                 onClick={() => setBaseModel(model.id)}
                 className={`cursor-pointer p-4 rounded-xl border-2 text-center transition-all ${
                   baseModel === model.id
-                    ? 'border-magenta-500 bg-magenta-500/10'
-                    : 'border-gray-700 hover:border-magenta-500/50'
+                    ? 'border-green-500 bg-green-500/10'
+                    : 'border-gray-700 hover:border-green-500/50'
                 }`}
               >
-                <p className="font-bold mb-1 text-magenta-400">{model.name}</p>
+                <p className="font-bold mb-1 text-green-400">{model.name}</p>
                 <p className="text-xs text-gray-500">{model.description}</p>
               </div>
             ))}
@@ -182,7 +182,7 @@ export default function CreateAgentPage() {
 
         {/* Starting Capital */}
         <div className="mb-8">
-          <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+          <label className="block text-lg font-bold mb-3 text-green-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
             Starting Capital: ${capital}
           </label>
           <input
@@ -204,14 +204,14 @@ export default function CreateAgentPage() {
         </div>
 
         {/* Agent Preview */}
-        <div className="mb-8 p-6 bg-gradient-to-r from-cyan-500/10 to-magenta-500/10 rounded-xl border border-cyan-500/30">
-          <h3 className="text-lg font-bold mb-4 text-purple-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+        <div className="mb-8 p-6 bg-gradient-to-r from-green-500/10 to-green-600/10 rounded-xl border border-green-500/30">
+          <h3 className="text-lg font-bold mb-4 text-green-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
             AGENT PREVIEW
           </h3>
           <div className="grid md:grid-cols-2 gap-4 text-sm">
             <div>
               <p className="text-gray-400">Name:</p>
-              <p className="font-bold text-cyan-400">{agentName || 'Unnamed Agent'}</p>
+              <p className="font-bold text-green-400">{agentName || 'Unnamed Agent'}</p>
             </div>
             <div>
               <p className="text-gray-400">Personality:</p>

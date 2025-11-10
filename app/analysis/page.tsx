@@ -52,7 +52,7 @@ export default function AnalysisPage() {
     <AppLayout>
       <PageHeader
         title="AI MARKET ANALYSIS"
-        description="Pilih market crypto untuk dianalisis oleh Mistral AI"
+        description="Choose crypto market to be analyzed by Kalsh AI"
       />
 
       <div className="grid lg:grid-cols-12 gap-8">

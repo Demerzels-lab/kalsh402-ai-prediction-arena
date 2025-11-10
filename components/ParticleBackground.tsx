@@ -12,82 +12,76 @@ export default function ParticleBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Set canvas to full screen
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const particles: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
-      color: string;
-    }> = [];
+    // The characters (Katakana, numbers, letters)
+    const characters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789';
+    const charArray = characters.split('');
+    
+    // Set font size and calculate columns
+    const fontSize = 14;
+    const columns = Math.floor(canvas.width / fontSize);
 
-    const colors = ['#00f0ff', '#ff00ff', '#b026ff', '#00ffaa'];
-
-    // Create particles
-    for (let i = 0; i < 80; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-        color: colors[Math.floor(Math.random() * colors.length)]
-      });
+    // This array holds the "y" position of the leading character for each column
+    const drops: number[] = [];
+    for (let i = 0; i < columns; i++) {
+      drops[i] = 1;
     }
 
-    function animate() {
-      if (!canvas || !ctx) return;
-      
+    // The draw loop
+    function draw() {
+      if (!ctx || !canvas) return;
+
+      // 1. Draw a semi-transparent black rectangle over the whole screen
+      // This creates the "fading" trail effect
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach((particle, i) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
+      // 2. Set the text color to our neon green theme
+      ctx.fillStyle = '#39FF14'; // <-- Our Neon Green Palette
+      ctx.font = `${fontSize}px monospace`;
 
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+      // 3. Loop through each column
+      for (let i = 0; i < drops.length; i++) {
+        // Pick a random character
+        const text = charArray[Math.floor(Math.random() * charArray.length)];
+        
+        // Draw the character
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color;
-        ctx.fill();
+        // Reset the drop to the top randomly to create staggered streams
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
 
-        // Draw connections
-        particles.slice(i + 1).forEach(otherParticle => {
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 150) {
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - distance / 150)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-      });
-
-      requestAnimationFrame(animate);
+        // Move the drop down for the next frame
+        drops[i]++;
+      }
     }
 
-    animate();
+    // 4. Set the animation to run at ~30 FPS
+    const interval = setInterval(draw, 33);
 
+    // 5. Add a resize listener to reset on window change
     const handleResize = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      // Reset drops array
+      for (let i = 0; i < columns; i++) {
+        drops[i] = 1;
+      }
     };
-
     window.addEventListener('resize', handleResize);
 
+    // 6. Clean up
     return () => {
+      clearInterval(interval);
       window.removeEventListener('resize', handleResize);
     };
+
   }, []);
 
   return (

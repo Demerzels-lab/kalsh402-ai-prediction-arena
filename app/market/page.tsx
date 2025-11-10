@@ -46,8 +46,8 @@ export default function MarketPage() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-orbitron)' }}>
-            LIVE PREDICTION MARKETS 2025
+          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
+              LIVE PREDICTION MARKETS 2025
           </h1>
           <p className="text-gray-400 text-lg">
             100 prediction markets untuk tahun 2025 • {filteredMarkets.length} markets tersedia • Page {currentPage} of {totalPages}
@@ -251,9 +251,9 @@ export default function MarketPage() {
                     Payout: ${(100 / selectedMarket.noOdds).toFixed(2)}
                   </p>
                 </div>
-                <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
-                  <p className="text-sm text-blue-400 mb-2">Market Volume</p>
-                  <p className="text-2xl font-bold text-blue-400">${(selectedMarket.volume / 1000).toFixed(0)}K</p>
+                <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
+                  <p className="text-sm text-green-400 mb-2">Market Volume</p>
+                  <p className="text-2xl font-bold text-green-400">${(selectedMarket.volume / 1000).toFixed(0)}K</p>
                   <p className="text-xs text-gray-400 mt-1">
                     {Math.floor(selectedMarket.volume / 10)} predictions
                   </p>

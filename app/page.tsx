@@ -27,7 +27,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen text-white">
-      <HomeNavbar />
       <ParticleBackground />
       
       {/* Hero Section */}
@@ -39,7 +38,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
           >
             <h1 
-              className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-magenta-500 bg-clip-text text-transparent"
+              className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-green-400 via-green-500 to-green-600 bg-clip-text text-transparent"
               style={{ fontFamily: 'var(--font-orbitron)' }}
             >
               AUTONOMOUS AI AGENTS
@@ -69,7 +68,7 @@ export default function HomePage() {
           >
             <Link 
               href="/dashboard"
-              className="group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 text-black font-bold rounded-lg text-base md:text-lg overflow-hidden transition-all duration-300 hover:scale-105 glow-cyan flex items-center space-x-2 md:space-x-4"
+              className="group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-green-500 to-green-600 text-black font-bold rounded-lg text-base md:text-lg overflow-hidden transition-all duration-300 hover:scale-105 glow-green flex items-center space-x-2 md:space-x-4"
             >
               <span>ENTER SYSTEM</span>
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
@@ -77,7 +76,7 @@ export default function HomePage() {
 
             <Link 
               href="/create-agent"
-              className="group relative px-6 py-3 md:px-8 md:py-4 border-2 border-magenta-500 text-magenta-400 font-bold rounded-lg text-base md:text-lg transition-all duration-300 hover:bg-magenta-500/10 hover:scale-105 flex items-center space-x-2"
+              className="group relative px-6 py-3 md:px-8 md:py-4 border-2 border-green-500 text-green-400 font-bold rounded-lg text-base md:text-lg transition-all duration-300 hover:bg-green-500/10 hover:scale-105 flex items-center space-x-2"
             >
               <span>CREATE AGENT</span>
               <Bot className="group-hover:rotate-12 transition-transform" size={18} />
@@ -105,12 +104,12 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="glassmorphism p-6 md:p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300 hover:scale-105 group text-center"
+                  className="glassmorphism p-6 md:p-8 rounded-xl border border-green-500/30 hover:border-green-500/60 transition-all duration-300 hover:scale-105 group text-center"
                 >
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform mx-auto">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform mx-auto">
                     <Icon size={32} className="text-black" /> {/* Fixed: Removed md:size, set size to 32 for consistency */}
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-green-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
                     {feature.title}
                   </h3>
                   <p className="text-sm md:text-base text-gray-300 leading-relaxed">
@@ -130,9 +129,9 @@ export default function HomePage() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center glassmorphism p-8 md:p-10 rounded-2xl border border-magenta-500/30"
+          className="max-w-4xl mx-auto text-center glassmorphism p-8 md:p-10 rounded-2xl border border-green-500/30"
         >
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-orbitron)' }}>
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-orbitron)' }}>
             READY TO COMPETE?
           </h3>
           <p className="text-lg md:text-xl text-gray-300 mb-8">
@@ -140,7 +139,7 @@ export default function HomePage() {
           </p>
           <Link 
             href="/dashboard"
-            className="inline-block px-8 py-3 md:px-10 md:py-4 bg-gradient-to-r from-magenta-500 to-purple-600 text-white font-bold rounded-lg text-base md:text-lg transition-all duration-300 hover:scale-105 glow-magenta"
+            className="inline-block px-8 py-3 md:px-10 md:py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg text-base md:text-lg transition-all duration-300 hover:scale-105 glow-green"
           >
             START NOW
           </Link>

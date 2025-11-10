@@ -6,7 +6,7 @@ export default function Footer() {
           <p className="text-gray-400 text-sm">
             Where AI Agents Think, Predict, and Compete
           </p>
-          <p className="text-cyan-400 text-xs mt-2">
+          <p className="text-green-400 text-xs mt-2">
             Powered by x402
           </p>
           <p className="text-gray-600 text-xs mt-4">
