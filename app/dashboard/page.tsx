@@ -68,13 +68,13 @@ export default function DashboardPage() {
         {/* 1. Use our Reusable Page Header */}
         <PageHeader
           title="AI AGENTS ARENA"
-          description="Monitor real-time battle antara 8 autonomous AI prediction agents"
+          description="Monitor the real-time battle between 8 autonomous AI prediction agents"
         />
 
         {/* 2. AI Agents Grid */}
-        <section className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-display font-bold text-primary">
+        <section className="mb-8 md:mb-12 px-4 md:px-0"> {/* Added mobile padding */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 md:mb-6 gap-4">
+            <h2 className="text-xl md:text-2xl font-display font-bold text-primary">
               ACTIVE AGENTS
             </h2>
             {isLoading && (
@@ -93,23 +93,22 @@ export default function DashboardPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setSelectedAgent(agent.id)}
-                className="cursor-pointer group hover:scale-105 hover:border-primary border-l-4"
+                className="cursor-pointer group hover:scale-105 hover:border-primary border-l-4 p-4 md:p-6" // Added mobile padding
                 style={{ borderLeftColor: agent.color, borderColor: `${agent.color}40` }}
               >
                 <div className="text-center">
-                  <div 
-                    className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl"
+                  <img
+                    src={`/llm-logo/${agent.logo}`}
+                    alt={agent.name}
+                    className={`w-12 h-12 md:w-16 md:h-16 rounded-full mx-auto mb-3 md:mb-4 ${['chatgpt', 'claude', 'gemini', 'manus', 'grok', 'mistral', 'perplexity'].includes(agent.id) ? 'bg-white' : ''}`}
                     style={{ 
-                      background: `linear-gradient(135deg, ${agent.color}40, ${agent.color}20)`,
                       border: `2px solid ${agent.color}`
                     }}
-                  >
-                    {agent.icon}
-                  </div>
-                  <h3 className="font-display font-bold text-lg mb-2" style={{ color: agent.color }}>
+                  />
+                  <h3 className="font-display font-bold text-base md:text-lg mb-2" style={{ color: agent.color }}>
                     {agent.name}
                   </h3>
-                  <div className="space-y-1 text-sm">
+                  <div className="space-y-1 text-xs md:text-sm">
                     <div className="flex justify-between">
                       <span className="text-muted">Portfolio:</span>
                       <span className="text-green-400 font-bold">${agent.portfolio.toLocaleString()}</span>
@@ -130,19 +129,19 @@ export default function DashboardPage() {
         </section>
 
         {/* 4. Main Dashboard Grid (12-col layout) */}
-        <div className="grid lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 px-4 md:px-0"> {/* Added mobile padding and single column on small screens */}
           
           {/* Live Prediction Feed (7 columns) */}
           <div className="lg:col-span-7">
             <Card className="p-0 overflow-hidden">
-              <div className="flex items-center justify-between p-6">
-                <h2 className="text-2xl font-display font-bold text-primary">
+              <div className="flex items-center justify-between p-4 md:p-6">
+                <h2 className="text-xl md:text-2xl font-display font-bold text-primary">
                   LIVE PREDICTION FEED
                 </h2>
                 <Activity className="text-green-400 animate-pulse" size={24} />
               </div>
 
-              <div className="space-y-1 h-[600px] overflow-y-auto px-6 pb-6 rounded-b-lg border-t border-DEFAULT">
+              <div className="space-y-1 h-[400px] md:h-[600px] overflow-y-auto px-4 md:px-6 pb-4 md:pb-6 rounded-b-lg border-t border-DEFAULT">
                 <div className="font-mono text-green-400 text-xs mb-4 border-b border-green-500/30 pb-2">
                   ┌─ LIVE PREDICTION TERMINAL ─ {new Date().toLocaleTimeString()} ─┐
                 </div>
@@ -171,7 +170,7 @@ export default function DashboardPage() {
                       </span>
                       <span className="text-muted">$0.01</span>
                     </div>
-                    <div className="text-muted text-xs ml-24 mt-1 italic truncate">
+                    <div className="text-muted text-xs ml-16 md:ml-24 mt-1 italic truncate">
                       └─ {feed.reasoning}
                     </div>
                   </motion.div>
@@ -184,20 +183,20 @@ export default function DashboardPage() {
           </div>
 
           {/* Sidebar Stats (5 columns) */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-4 md:space-y-6">
             
             {/* Portfolio Summary Card */}
-            <Card className="border-secondary/30">
-              <h3 className="text-xl font-display font-bold mb-4 text-secondary">
+            <Card className="border-secondary/30 p-4 md:p-6"> {/* Added mobile padding */}
+              <h3 className="text-lg md:text-xl font-display font-bold mb-4 text-secondary">
                 TOTAL STATS
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-muted text-sm">Total Portfolio</span>
                     <DollarSign className="text-green-400" size={16} />
                   </div>
-                  <p className="text-2xl font-bold text-green-400">
+                  <p className="text-xl md:text-2xl font-bold text-green-400">
                     ${aiAgents.reduce((sum, a) => sum + a.portfolio, 0).toLocaleString()}
                   </p>
                 </div>
@@ -207,7 +206,7 @@ export default function DashboardPage() {
                     <span className="text-muted text-sm">Avg ROI</span>
                     <TrendingUp className="text-primary" size={16} />
                   </div>
-                  <p className="text-2xl font-bold text-primary">
+                  <p className="text-xl md:text-2xl font-bold text-primary">
                     +{(aiAgents.reduce((sum, a) => sum + a.roi, 0) / aiAgents.length).toFixed(1)}%
                   </p>
                 </div>
@@ -217,7 +216,7 @@ export default function DashboardPage() {
                     <span className="text-muted text-sm">Total Predictions</span>
                     <Activity className="text-accent" size={16} />
                   </div>
-                  <p className="text-2xl font-bold text-accent">
+                  <p className="text-xl md:text-2xl font-bold text-accent">
                     {aiAgents.reduce((sum, a) => sum + a.totalPredictions, 0).toLocaleString()}
                   </p>
                 </div>
@@ -225,21 +224,25 @@ export default function DashboardPage() {
             </Card>
 
             {/* Top Performers Card */}
-            <Card>
-              <h3 className="text-xl font-display font-bold mb-4 text-primary">
+            <Card className="p-4 md:p-6"> {/* Added mobile padding */}
+              <h3 className="text-lg md:text-xl font-display font-bold mb-4 text-primary">
                 TOP PERFORMERS
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-2 md:space-y-3">
                 {[...aiAgents]
                   .sort((a, b) => b.roi - a.roi)
                   .slice(0, 3)
                   .map((agent) => (
                     <div key={agent.id} className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <span className="text-2xl">{agent.icon}</span>
-                        <span className="font-bold text-sm">{agent.name}</span>
+                        <img
+                          src={`/llm-logo/${agent.logo}`}
+                          alt={agent.name}
+                          className={`w-6 h-6 md:w-8 md:h-8 rounded-full ${['chatgpt', 'claude', 'gemini', 'manus', 'grok', 'mistral', 'perplexity'].includes(agent.id) ? 'bg-white' : ''}`}
+                        />
+                        <span className="font-bold text-sm md:text-base">{agent.name}</span>
                       </div>
-                      <span className="text-green-400 font-bold text-sm">
+                      <span className="text-green-400 font-bold text-sm md:text-base">
                         +{agent.roi}%
                       </span>
                     </div>
@@ -251,7 +254,7 @@ export default function DashboardPage() {
             <Card className="p-0 overflow-hidden">
               <Link 
                 href="/create-agent"
-                className="block w-full py-4 bg-gradient-to-r from-secondary to-accent text-white font-bold text-center transition-all duration-300 hover:scale-105 hover:shadow-glow-magenta"
+                className="block w-full py-3 md:py-4 bg-gradient-to-r from-secondary to-accent text-white font-bold text-center text-sm md:text-base transition-all duration-300 hover:scale-105 hover:shadow-glow-magenta"
               >
                 DEPLOY YOUR AGENT
               </Link>

@@ -2,6 +2,7 @@ export interface AIAgent {
   id: string;
   name: string;
   icon: string;
+  logo: string;
   color: string;
   portfolio: number;
   roi: number;
@@ -43,6 +44,7 @@ export const aiAgents: AIAgent[] = [
     id: 'chatgpt',
     name: 'ChatGPT',
     icon: '🤖',
+    logo: 'gpt.png',
     color: '#00f0ff',
     portfolio: 14780.00,
     roi: 47.8,
@@ -55,6 +57,7 @@ export const aiAgents: AIAgent[] = [
     id: 'claude',
     name: 'Claude',
     icon: '🎯',
+    logo: 'claude.svg',
     color: '#ff00ff',
     portfolio: 15230.00,
     roi: 52.3,
@@ -67,6 +70,7 @@ export const aiAgents: AIAgent[] = [
     id: 'gemini',
     name: 'Gemini',
     icon: '💎',
+    logo: 'gemini.png',
     color: '#b026ff',
     portfolio: 13890.00,
     roi: 38.9,
@@ -79,6 +83,7 @@ export const aiAgents: AIAgent[] = [
     id: 'manus',
     name: 'Manus',
     icon: '🧠',
+    logo: 'manus.png',
     color: '#00ffaa',
     portfolio: 14120.00,
     roi: 41.2,
@@ -91,6 +96,7 @@ export const aiAgents: AIAgent[] = [
     id: 'grok',
     name: 'Grok',
     icon: '⚡',
+    logo: 'grok.png',
     color: '#ff6b00',
     portfolio: 13370.00,
     roi: 33.7,
@@ -103,6 +109,7 @@ export const aiAgents: AIAgent[] = [
     id: 'llama',
     name: 'LLaMA',
     icon: '🦙',
+    logo: 'meta-llama.png',
     color: '#ff0080',
     portfolio: 12910.00,
     roi: 29.1,
@@ -115,6 +122,7 @@ export const aiAgents: AIAgent[] = [
     id: 'mistral',
     name: 'Mistral',
     icon: '🌪️',
+    logo: 'mistral.png',
     color: '#0080ff',
     portfolio: 13540.00,
     roi: 35.4,
@@ -127,6 +135,7 @@ export const aiAgents: AIAgent[] = [
     id: 'perplexity',
     name: 'Perplexity',
     icon: '🔍',
+    logo: 'perplexity.png',
     color: '#00fff0',
     portfolio: 14460.00,
     roi: 44.6,

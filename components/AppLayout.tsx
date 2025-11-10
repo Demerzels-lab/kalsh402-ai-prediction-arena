@@ -12,11 +12,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       <ParticleBackground />
       <Navbar />
       
-      {/* THIS IS THE FIX:
-        - No 'max-w-7xl' or 'mx-auto'
-        - Just responsive padding that lets the content fill the screen.
-      */}
-      <main className="relative z-10 w-full pt-24 pb-12 px-4 md:px-6 lg:px-8">
+      <main className="relative w-full pt-24 pb-12 px-4 md:px-6 lg:px-8 z-0"> {/* Added z-0 to keep content below navbar */}
         {children}
       </main>
       

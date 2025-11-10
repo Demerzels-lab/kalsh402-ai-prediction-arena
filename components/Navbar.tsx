@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Bot, TrendingUp, Trophy, Store } from 'lucide-react';
+import { Bot, TrendingUp, Trophy, Store, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { href: '/dashboard', label: 'Dashboard', icon: Bot },
@@ -15,17 +17,18 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 glassmorphism border-b border-cyan-500/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed top-0 left-0 right-0 glassmorphism border-b border-cyan-500/30 z-50">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 md:h-16">
           <Link 
-            href="/" 
-            className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent"
+            href="/"
+            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent"
             style={{ fontFamily: 'var(--font-orbitron)' }}
           >
             KALSH402
           </Link>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex glassmorphism border border-primary/30 rounded-lg p-1 space-x-1">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -36,7 +39,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={`
-                    flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300
+                    flex items-center space-x-2 px-3 md:px-4 py-2 rounded-lg transition-all duration-300
                     ${isActive 
                       ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 glow-cyan' 
                       : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10'
@@ -50,13 +53,49 @@ export default function Navbar() {
             })}
           </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="hidden sm:flex items-center space-x-2 px-4 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30">
-              <span className="text-xs text-purple-400">Powered by</span>
-              <span className="text-sm font-bold text-purple-300">x402</span>
-            </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          <div className="hidden sm:flex items-center space-x-2 px-3 md:px-4 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30">
+            <span className="text-xs text-purple-400">Powered by</span>
+            <span className="text-sm font-bold text-purple-300">x402</span>
           </div>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-2 pb-4">
+            <div className="glassmorphism border border-primary/30 rounded-lg p-2 space-y-1">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = pathname === item.href;
+                
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`
+                      flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300
+                      ${isActive 
+                        ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 glow-cyan' 
+                        : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10'
+                      }
+                    `}
+                  >
+                    <Icon size={20} />
+                    <span className="text-base font-medium">{item.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

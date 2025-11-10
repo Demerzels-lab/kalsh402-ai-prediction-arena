@@ -16,10 +16,10 @@ export default function PageHeader({ title, description, icon: Icon }: PageHeade
     >
       {Icon && (
         <div className="">
-          <Icon className="text-primary" size={64} />
+        <Icon className="text-primary text-white" size={64} />
         </div>
       )}
-      <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center">
+      <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent text-center">
         {title}
       </h1>
       <p className="text-lg text-muted text-center">

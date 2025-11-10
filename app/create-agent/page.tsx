@@ -3,10 +3,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import ParticleBackground from '@/components/ParticleBackground';
 import { Bot, Brain, Zap, TrendingUp } from 'lucide-react';
+import AppLayout from '@/components/AppLayout';
 
 type Personality = 'analytical' | 'risk-taker' | 'meme' | 'contrarian';
 type BaseModel = 'llama' | 'mistral' | 'gemini' | 'claude';
@@ -77,240 +75,231 @@ export default function CreateAgentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <ParticleBackground />
-      <Navbar />
+    <AppLayout>
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-12 text-center"
+      >
+        <div className="flex justify-center mb-4">
+          <Bot className="text-cyan-400" size={64} />
+        </div>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-orbitron)' }}>
+          CREATE YOUR AI AGENT
+        </h1>
+        <p className="text-gray-400 text-lg">
+          Deploy autonomous agent untuk berkompetisi di prediction markets
+        </p>
+      </motion.div>
 
-      <main className="pt-24 pb-12 mx-44">
-        <div className="mx-30">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-12 text-center"
-          >
-            <div className="flex justify-center mb-4">
-              <Bot className="text-cyan-400" size={64} />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-orbitron)' }}>
-              CREATE YOUR AI AGENT
-            </h1>
-            <p className="text-gray-400 text-lg">
-              Deploy autonomous agent untuk berkompetisi di prediction markets
-            </p>
-          </motion.div>
+      {/* Form */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+        className="glassmorphism p-8 rounded-2xl border border-cyan-500/30 max-w-4xl mx-auto"
+      >
+        {/* Agent Name */}
+        <div className="mb-8">
+          <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+            Agent Name
+          </label>
+          <input
+            type="text"
+            placeholder="e.g., CyberPredictor3000"
+            value={agentName}
+            onChange={(e) => setAgentName(e.target.value)}
+            className="w-full px-4 py-3 bg-black/40 border border-cyan-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all"
+          />
+        </div>
 
-          {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="glassmorphism p-8 rounded-2xl border border-cyan-500/30"
-          >
-            {/* Agent Name */}
-            <div className="mb-8">
-              <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Agent Name
-              </label>
-              <input
-                type="text"
-                placeholder="e.g., CyberPredictor3000"
-                value={agentName}
-                onChange={(e) => setAgentName(e.target.value)}
-                className="w-full px-4 py-3 bg-black/40 border border-cyan-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all"
-              />
-            </div>
-
-            {/* Personality */}
-            <div className="mb-8">
-              <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Personality Type
-              </label>
-              <div className="grid md:grid-cols-2 gap-4">
-                {personalities.map((p) => {
-                  const Icon = p.icon;
-                  return (
-                    <div
-                      key={p.id}
-                      onClick={() => setPersonality(p.id)}
-                      className={`cursor-pointer p-4 rounded-xl border-2 transition-all ${
-                        personality === p.id
-                          ? 'border-cyan-500 bg-cyan-500/10'
-                          : 'border-gray-700 hover:border-cyan-500/50'
-                      }`}
+        {/* Personality */}
+        <div className="mb-8">
+          <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+            Personality Type
+          </label>
+          <div className="grid md:grid-cols-2 gap-4">
+            {personalities.map((p) => {
+              const Icon = p.icon;
+              return (
+                <div
+                  key={p.id}
+                  onClick={() => setPersonality(p.id)}
+                  className={`cursor-pointer p-4 rounded-xl border-2 transition-all ${
+                    personality === p.id
+                      ? 'border-cyan-500 bg-cyan-500/10'
+                      : 'border-gray-700 hover:border-cyan-500/50'
+                  }`}
+                >
+                  <div className="flex items-start space-x-3">
+                    <div 
+                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{ 
+                        background: `linear-gradient(135deg, ${p.color}40, ${p.color}20)`,
+                        border: `2px solid ${p.color}`
+                      }}
                     >
-                      <div className="flex items-start space-x-3">
-                        <div 
-                          className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
-                          style={{ 
-                            background: `linear-gradient(135deg, ${p.color}40, ${p.color}20)`,
-                            border: `2px solid ${p.color}`
-                          }}
-                        >
-                          <Icon size={24} style={{ color: p.color }} />
-                        </div>
-                        <div>
-                          <h3 className="font-bold mb-1" style={{ color: p.color }}>
-                            {p.name}
-                          </h3>
-                          <p className="text-sm text-gray-400">
-                            {p.description}
-                          </p>
-                        </div>
-                      </div>
+                      <Icon size={24} style={{ color: p.color }} />
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Base Model */}
-            <div className="mb-8">
-              <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Base Model
-              </label>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {baseModels.map((model) => (
-                  <div
-                    key={model.id}
-                    onClick={() => setBaseModel(model.id)}
-                    className={`cursor-pointer p-4 rounded-xl border-2 text-center transition-all ${
-                      baseModel === model.id
-                        ? 'border-magenta-500 bg-magenta-500/10'
-                        : 'border-gray-700 hover:border-magenta-500/50'
-                    }`}
-                  >
-                    <p className="font-bold mb-1 text-magenta-400">{model.name}</p>
-                    <p className="text-xs text-gray-500">{model.description}</p>
+                    <div>
+                      <h3 className="font-bold mb-1" style={{ color: p.color }}>
+                        {p.name}
+                      </h3>
+                      <p className="text-sm text-gray-400">
+                        {p.description}
+                      </p>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Starting Capital */}
-            <div className="mb-8">
-              <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Starting Capital: ${capital}
-              </label>
-              <input
-                type="range"
-                min="50"
-                max="1000"
-                step="50"
-                value={capital}
-                onChange={(e) => setCapital(Number(e.target.value))}
-                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
-                style={{
-                  background: `linear-gradient(to right, #00f0ff 0%, #00f0ff ${(capital - 50) / 9.5}%, #333 ${(capital - 50) / 9.5}%, #333 100%)`
-                }}
-              />
-              <div className="flex justify-between text-sm text-gray-500 mt-2">
-                <span>$50</span>
-                <span>$1,000</span>
-              </div>
-            </div>
-
-            {/* Agent Preview */}
-            <div className="mb-8 p-6 bg-gradient-to-r from-cyan-500/10 to-magenta-500/10 rounded-xl border border-cyan-500/30">
-              <h3 className="text-lg font-bold mb-4 text-purple-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                AGENT PREVIEW
-              </h3>
-              <div className="grid md:grid-cols-2 gap-4 text-sm">
-                <div>
-                  <p className="text-gray-400">Name:</p>
-                  <p className="font-bold text-cyan-400">{agentName || 'Unnamed Agent'}</p>
                 </div>
-                <div>
-                  <p className="text-gray-400">Personality:</p>
-                  <p className="font-bold text-magenta-400">
-                    {personalities.find(p => p.id === personality)?.name}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-gray-400">Base Model:</p>
-                  <p className="font-bold text-purple-400">
-                    {baseModels.find(m => m.id === baseModel)?.name}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-gray-400">Starting Capital:</p>
-                  <p className="font-bold text-green-400">${capital}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Deploy Button */}
-            <button
-              onClick={handleDeploy}
-              disabled={isDeploying}
-              className={`w-full py-4 bg-gradient-to-r from-cyan-500 to-magenta-500 text-white font-bold rounded-xl text-lg transition-all duration-300 ${
-                isDeploying
-                  ? 'opacity-50 cursor-not-allowed'
-                  : 'hover:scale-105 glow-cyan'
-              }`}
-            >
-              {isDeploying ? (
-                <span className="flex items-center justify-center space-x-2">
-                  <span className="animate-spin">⚙️</span>
-                  <span>DEPLOYING AGENT...</span>
-                </span>
-              ) : (
-                'DEPLOY AGENT'
-              )}
-            </button>
-          </motion.div>
-
-          {/* Info Cards */}
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="glassmorphism p-6 rounded-xl border border-cyan-500/20 text-center"
-            >
-              <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-3">
-                <Bot className="text-cyan-400" size={24} />
-              </div>
-              <h4 className="font-bold mb-2 text-cyan-400">Autonomous</h4>
-              <p className="text-sm text-gray-400">
-                Agent beroperasi 24/7 tanpa intervensi manual
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="glassmorphism p-6 rounded-xl border border-magenta-500/20 text-center"
-            >
-              <div className="w-12 h-12 rounded-full bg-magenta-500/20 flex items-center justify-center mx-auto mb-3">
-                <Zap className="text-magenta-400" size={24} />
-              </div>
-              <h4 className="font-bold mb-2 text-magenta-400">Fast Execution</h4>
-              <p className="text-sm text-gray-400">
-                Prediksi dieksekusi dalam milliseconds dengan x402
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="glassmorphism p-6 rounded-xl border border-purple-500/20 text-center"
-            >
-              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-3">
-                <TrendingUp className="text-purple-400" size={24} />
-              </div>
-              <h4 className="font-bold mb-2 text-purple-400">Adaptive Learning</h4>
-              <p className="text-sm text-gray-400">
-                Agent belajar dari hasil dan improve strategy over time
-              </p>
-            </motion.div>
+              );
+            })}
           </div>
         </div>
-      </main>
 
-      <Footer />
-    </div>
+        {/* Base Model */}
+        <div className="mb-8">
+          <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+            Base Model
+          </label>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {baseModels.map((model) => (
+              <div
+                key={model.id}
+                onClick={() => setBaseModel(model.id)}
+                className={`cursor-pointer p-4 rounded-xl border-2 text-center transition-all ${
+                  baseModel === model.id
+                    ? 'border-magenta-500 bg-magenta-500/10'
+                    : 'border-gray-700 hover:border-magenta-500/50'
+                }`}
+              >
+                <p className="font-bold mb-1 text-magenta-400">{model.name}</p>
+                <p className="text-xs text-gray-500">{model.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Starting Capital */}
+        <div className="mb-8">
+          <label className="block text-lg font-bold mb-3 text-cyan-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+            Starting Capital: ${capital}
+          </label>
+          <input
+            type="range"
+            min="50"
+            max="1000"
+            step="50"
+            value={capital}
+            onChange={(e) => setCapital(Number(e.target.value))}
+            className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
+            style={{
+              background: `linear-gradient(to right, #00f0ff 0%, #00f0ff ${(capital - 50) / 9.5}%, #333 ${(capital - 50) / 9.5}%, #333 100%)`
+            }}
+          />
+          <div className="flex justify-between text-sm text-gray-500 mt-2">
+            <span>$50</span>
+            <span>$1,000</span>
+          </div>
+        </div>
+
+        {/* Agent Preview */}
+        <div className="mb-8 p-6 bg-gradient-to-r from-cyan-500/10 to-magenta-500/10 rounded-xl border border-cyan-500/30">
+          <h3 className="text-lg font-bold mb-4 text-purple-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
+            AGENT PREVIEW
+          </h3>
+          <div className="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-gray-400">Name:</p>
+              <p className="font-bold text-cyan-400">{agentName || 'Unnamed Agent'}</p>
+            </div>
+            <div>
+              <p className="text-gray-400">Personality:</p>
+              <p className="font-bold text-magenta-400">
+                {personalities.find(p => p.id === personality)?.name}
+              </p>
+            </div>
+            <div>
+              <p className="text-gray-400">Base Model:</p>
+              <p className="font-bold text-purple-400">
+                {baseModels.find(m => m.id === baseModel)?.name}
+              </p>
+            </div>
+            <div>
+              <p className="text-gray-400">Starting Capital:</p>
+              <p className="font-bold text-green-400">${capital}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Deploy Button */}
+        <button
+          onClick={handleDeploy}
+          disabled={isDeploying}
+          className={`w-full py-4 bg-gradient-to-r from-cyan-500 to-magenta-500 text-white font-bold rounded-xl text-lg transition-all duration-300 ${
+            isDeploying
+              ? 'opacity-50 cursor-not-allowed'
+              : 'hover:scale-105 glow-cyan'
+          }`}
+        >
+          {isDeploying ? (
+            <span className="flex items-center justify-center space-x-2">
+              <span className="animate-spin">⚙️</span>
+              <span>DEPLOYING AGENT...</span>
+            </span>
+          ) : (
+            'DEPLOY AGENT'
+          )}
+        </button>
+      </motion.div>
+
+      {/* Info Cards */}
+      <div className="grid md:grid-cols-3 gap-6 mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="glassmorphism p-6 rounded-xl border border-cyan-500/20 text-center"
+        >
+          <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-3">
+            <Bot className="text-cyan-400" size={24} />
+          </div>
+          <h4 className="font-bold mb-2 text-cyan-400">Autonomous</h4>
+          <p className="text-sm text-gray-400">
+            Agent beroperasi 24/7 tanpa intervensi manual
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="glassmorphism p-6 rounded-xl border border-magenta-500/20 text-center"
+        >
+          <div className="w-12 h-12 rounded-full bg-magenta-500/20 flex items-center justify-center mx-auto mb-3">
+            <Zap className="text-magenta-400" size={24} />
+          </div>
+          <h4 className="font-bold mb-2 text-magenta-400">Fast Execution</h4>
+          <p className="text-sm text-gray-400">
+            Prediksi dieksekusi dalam milliseconds dengan x402
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="glassmorphism p-6 rounded-xl border border-purple-500/20 text-center"
+        >
+          <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-3">
+            <TrendingUp className="text-purple-400" size={24} />
+          </div>
+          <h4 className="font-bold mb-2 text-purple-400">Adaptive Learning</h4>
+          <p className="text-sm text-gray-400">
+            Agent belajar dari hasil dan improve strategy over time
+          </p>
+        </motion.div>
+      </div>
+    </AppLayout>
   );
 }

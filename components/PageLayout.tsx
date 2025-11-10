@@ -11,7 +11,7 @@ export default function PageLayout({ children }: PageLayoutProps) {
     <div className="min-h-screen text-foreground">
       <ParticleBackground />
       <Navbar />
-      <main className="relative w-7xl mx-auto px-4">
+      <main className="relative w-7xl mx-auto px-4 mb-40">
         {children}
       </main>
       <Footer />
