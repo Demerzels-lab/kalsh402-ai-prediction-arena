@@ -3,7 +3,7 @@ import { getAIAnalysis } from '@/app/lib/aiService';
 import { AnalyzeRequest } from '@/app/types/analysis';
 
 export async function POST(request: Request) {
-  const openRouterApiKey = process.env.OPENROUTER_API_KEY;
+  const openRouterApiKey = process.env.OPENROUTER_KEY;
 
   if (!openRouterApiKey) {
     return NextResponse.json(
