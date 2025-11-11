@@ -195,7 +195,7 @@ export default function MarketPage() {
           <div className="text-center py-20">
             <TrendingUp className="mx-auto mb-4 text-gray-600" size={64} />
             <p className="text-gray-400 text-lg">
-              Tidak ada market yang cocok dengan pencarian Anda
+              No markets found matching your search
             </p>
           </div>
         )}
@@ -291,12 +291,12 @@ export default function MarketPage() {
                 <div className="space-y-4">
                   {selectedMarket.topAIConfidence.map((ai, i) => {
                     const reasons = [
-                      "Analisis historical patterns menunjukkan trend positif untuk periode ini.",
-                      "Market fundamentals dan technical indicators mendukung prediksi ini.",
-                      "Macroeconomic factors dan sentiment analysis memberikan sinyal bullish.",
-                      "Data correlation dengan events serupa menunjukkan probabilitas tinggi.",
-                      "Risk-reward ratio sangat favorable berdasarkan volatility analysis.",
-                      "Institutional flow dan retail sentiment alignment mendukung direction ini."
+                      "Historical pattern analysis shows positive trend for this period.",
+                      "Market fundamentals and technical indicators support this prediction.",
+                      "Macroeconomic factors and sentiment analysis provide bullish signals.",
+                      "Data correlation with similar events shows high probability.",
+                      "Risk-reward ratio is very favorable based on volatility analysis.",,
+                      "Institutional flow and retail sentiment alignment support this direction."
                     ];
                     
                     return (

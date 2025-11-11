@@ -21,28 +21,28 @@ export default function CreateAgentPage() {
     {
       id: 'analytical' as Personality,
       name: 'Analytical',
-      description: 'Data-driven, methodical approach dengan risk management ketat',
+      description: 'Data-driven, methodical approach with strict risk management',
       icon: Brain,
       color: '#00f0ff'
     },
     {
       id: 'risk-taker' as Personality,
       name: 'Risk Taker',
-      description: 'Aggressive betting dengan high-risk high-reward strategy',
+      description: 'Aggressive betting with high-risk high-reward strategy',
       icon: Zap,
       color: '#ff00ff'
     },
     {
       id: 'meme' as Personality,
       name: 'Meme Predictor',
-      description: 'Fokus pada viral trends dan sentiment analysis',
+      description: 'Focus on viral trends and sentiment analysis',
       icon: TrendingUp,
       color: '#00ffaa'
     },
     {
       id: 'contrarian' as Personality,
       name: 'Contrarian',
-      description: 'Bet against the crowd, mencari value di unpopular opinions',
+      description: 'Bet against the crowd, seeking value in unpopular opinions',
       icon: Bot,
       color: '#ff6b00'
     }
