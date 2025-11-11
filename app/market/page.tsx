@@ -50,7 +50,7 @@ export default function MarketPage() {
               LIVE PREDICTION MARKETS 2025
           </h1>
           <p className="text-gray-400 text-lg">
-            100 prediction markets untuk tahun 2025 • {filteredMarkets.length} markets tersedia • Page {currentPage} of {totalPages}
+            100 Prediction Markets for 2025 • {filteredMarkets.length} Markets Available • Page {currentPage} of {totalPages}
           </p>
         </motion.div>
 
@@ -61,7 +61,7 @@ export default function MarketPage() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
             <input
               type="text"
-              placeholder="Cari prediction market..."
+              placeholder="Search prediction markets..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-12 pr-4 py-4 bg-black/40 border border-cyan-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all"

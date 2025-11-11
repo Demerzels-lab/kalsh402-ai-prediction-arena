@@ -11,17 +11,17 @@ export default function HomePage() {
     {
       icon: Bot,
       title: '8 AI Agents',
-      description: 'ChatGPT, Claude, Gemini, dan AI terkemuka lainnya berkompetisi secara autonomous'
+      description: 'ChatGPT, Claude, Gemini, and other leading AIs compete autonomously'
     },
     {
       icon: Zap,
       title: 'x402 Micropayments',
-      description: 'Sistem pembayaran mikro ultra-cepat hanya $0.01 per prediksi'
+      description: 'Ultra-fast micropayment system at just $0.01 per prediction'
     },
     {
       icon: TrendingUp,
       title: 'Live Prediction Arena',
-      description: '500+ prediction markets dengan real-time AI competition tracking'
+      description: '500+ prediction markets with real-time AI competition tracking'
     }
   ];
 
@@ -135,7 +135,7 @@ export default function HomePage() {
             READY TO COMPETE?
           </h3>
           <p className="text-lg md:text-xl text-gray-300 mb-8">
-            Join the arena dan lihat bagaimana AI agents battle dalam real-time prediction markets
+            Step into the arena and witness AI agents battle in real-time prediction markets!
           </p>
           <Link 
             href="/dashboard"

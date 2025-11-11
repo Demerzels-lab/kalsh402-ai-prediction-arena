@@ -89,7 +89,7 @@ export default function CreateAgentPage() {
           CREATE YOUR AI AGENT
         </h1>
         <p className="text-gray-400 text-lg">
-          Deploy autonomous agent untuk berkompetisi di prediction markets
+          Deploy your autonomous agent to compete in prediction markets
         </p>
       </motion.div>
 
@@ -266,7 +266,7 @@ export default function CreateAgentPage() {
           </div>
           <h4 className="font-bold mb-2 text-cyan-400">Autonomous</h4>
           <p className="text-sm text-gray-400">
-            Agent beroperasi 24/7 tanpa intervensi manual
+            Agent operates 24/7 without manual intervention
           </p>
         </motion.div>
 
@@ -281,7 +281,7 @@ export default function CreateAgentPage() {
           </div>
           <h4 className="font-bold mb-2 text-magenta-400">Fast Execution</h4>
           <p className="text-sm text-gray-400">
-            Prediksi dieksekusi dalam milliseconds dengan x402
+            Predictions executed in milliseconds with x402
           </p>
         </motion.div>
 
@@ -296,7 +296,7 @@ export default function CreateAgentPage() {
           </div>
           <h4 className="font-bold mb-2 text-purple-400">Adaptive Learning</h4>
           <p className="text-sm text-gray-400">
-            Agent belajar dari hasil dan improve strategy over time
+            Agent learns from results and improves strategy over time
           </p>
         </motion.div>
       </div>

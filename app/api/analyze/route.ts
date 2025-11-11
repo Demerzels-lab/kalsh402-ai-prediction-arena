@@ -5,7 +5,6 @@ import { AnalyzeRequest } from '@/app/types/analysis';
 export async function POST(request: Request) {
   const openRouterApiKey = process.env.OPENROUTER_API_KEY;
 
-  // 1. Check for API Key
   if (!openRouterApiKey) {
     return NextResponse.json(
       { message: 'OPENROUTER_API_KEY is not configured in .env.local' },
@@ -14,7 +13,6 @@ export async function POST(request: Request) {
   }
 
   try {
-    // 2. Get the market data from the request
     const { market } = (await request.json()) as AnalyzeRequest;
 
     if (!market || !market.id) {
