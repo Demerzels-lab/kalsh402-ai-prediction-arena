@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ParticleBackground from '@/components/ParticleBackground';
-import { Bot, Zap, TrendingUp, ArrowRight } from 'lucide-react';
+import { Bot, Zap, TrendingUp, ArrowRight, Github, Twitter } from 'lucide-react';
 import HomeNavbar from '@/components/HomeNavbar';
 
 export default function HomePage() {
@@ -30,7 +30,7 @@ export default function HomePage() {
       <ParticleBackground />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center py-12 px-4"> {/* Added py-12 and px-4 for mobile padding */}
+      <section className="relative min-h-screen flex items-center justify-center py-12 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -82,11 +82,36 @@ export default function HomePage() {
               <Bot className="group-hover:rotate-12 transition-transform" size={18} />
             </Link>
           </motion.div>
+
+          {/* Social Links in Hero */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-8 flex justify-center space-x-6"
+          >
+            <Link
+              href="https://github.com/Demerzels-lab/kalsh402-ai-prediction-arena"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-green-400 transition-colors"
+            >
+              <Github size={24} />
+            </Link>
+            <Link
+              href="https://x.com/kalsh402"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-green-400 transition-colors"
+            >
+              <Twitter size={24} />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 px-4"> {/* Added px-4 for mobile padding */}
+      <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -107,7 +132,7 @@ export default function HomePage() {
                   className="glassmorphism p-6 md:p-8 rounded-xl border border-green-500/30 hover:border-green-500/60 transition-all duration-300 hover:scale-105 group text-center"
                 >
                   <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform mx-auto">
-                    <Icon size={32} className="text-black" /> {/* Fixed: Removed md:size, set size to 32 for consistency */}
+                    <Icon size={32} className="text-black" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-green-400" style={{ fontFamily: 'var(--font-orbitron)' }}>
                     {feature.title}
@@ -123,7 +148,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 mb-12"> {/* Added px-4 and mb-12 for mobile padding and spacing */}
+      <section className="py-16 px-4 mb-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -145,6 +170,15 @@ export default function HomePage() {
           </Link>
         </motion.div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-4 border-t border-green-500/30">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-sm text-gray-400">
+            © 2025 KALSH402. Powered by x402. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

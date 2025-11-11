@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Bot, TrendingUp, Trophy, Store, Menu, X, Brain } from 'lucide-react';
+import { Bot, TrendingUp, Trophy, Store, Menu, X, Brain, Github, Twitter } from 'lucide-react';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -54,17 +54,41 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Right Side: Social Links and Powered By */}
+          <div className="flex items-center space-x-3">
+            {/* Social Links */}
+            <div className="hidden sm:flex items-center space-x-2">
+              <Link
+                href="https://github.com/Demerzels-lab/kalsh402-ai-prediction-arena"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-green-400 transition-colors"
+              >
+                <Github size={20} />
+              </Link>
+              <Link
+                href="https://x.com/kalsh402"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-green-400 transition-colors"
+              >
+                <Twitter size={20} />
+              </Link>
+            </div>
 
-          <div className="hidden sm:flex items-center space-x-2 px-3 md:px-4 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30">
-            <span className="text-xs text-purple-400">Powered by</span>
-            <span className="text-sm font-bold text-purple-300">x402</span>
+            {/* Powered by x402 */}
+            <div className="hidden sm:flex items-center space-x-2 px-3 md:px-4 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30">
+              <span className="text-xs text-purple-400">Powered by</span>
+              <span className="text-sm font-bold text-purple-300">x402</span>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 rounded-lg text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
 
@@ -94,6 +118,25 @@ export default function Navbar() {
                   </Link>
                 );
               })}
+              {/* Mobile Social Links */}
+              <div className="flex items-center justify-center space-x-4 pt-2 border-t border-gray-600 mt-2">
+                <Link
+                  href="https://github.com/Demerzels-lab/kalsh402-ai-prediction-arena"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-green-400 transition-colors"
+                >
+                  <Github size={24} />
+                </Link>
+                <Link
+                  href="https://x.com/kalsh402"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-green-400 transition-colors"
+                >
+                  <Twitter size={24} />
+                </Link>
+              </div>
             </div>
           </div>
         )}
