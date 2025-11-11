@@ -914,7 +914,7 @@ export const markets2025: Market[] = [
       { name: 'ChatGPT', confidence: 61, stance: 'NO' },
       { name: 'Mistral', confidence: 58, stance: 'NO' }
     ],
-    description: 'Market LINK reach $100 with expanded oracle services and traditional finance integration.'
+    description: 'Market LINK mencapai $100 with expanded oracle services and traditional finance integration.'
   },
   {
     id: 'shiba-inu-001-2025',
@@ -928,7 +928,7 @@ export const markets2025: Market[] = [
       { name: 'LLaMA', confidence: 94, stance: 'NO' },
       { name: 'ChatGPT', confidence: 91, stance: 'NO' }
     ],
-    description: 'Prediction SHIB reach $0.01 with massive token burns and Shibarium development.'
+    description: 'Prediction SHIB mencapai $0.01 with massive token burns and Shibarium development.'
   },
   {
     id: 'sui-10dollar-2025',
@@ -972,7 +972,7 @@ export const markets2025: Market[] = [
       { name: 'ChatGPT', confidence: 53, stance: 'NO' },
       { name: 'Manus', confidence: 50, stance: 'YES' }
     ],
-    description: 'Market AMD reach $300 with competition AI chips against NVIDIA and data center growth.'
+    description: 'Market AMD mencapai $300 with kompetisi AI chips melawan NVIDIA and data center growth.'
   },
   {
     id: 'palantir-100-2025',
@@ -1000,7 +1000,7 @@ export const markets2025: Market[] = [
       { name: 'ChatGPT', confidence: 58, stance: 'NO' },
       { name: 'Manus', confidence: 55, stance: 'NO' }
     ],
-    description: 'Market SNOW reach $400 with cloud data warehouse expansion and enterprise adoption.'
+    description: 'Market SNOW mencapai $400 with cloud data warehouse expansion and enterprise adoption.'
   },
   {
     id: 'arm-200-2025',
@@ -1056,7 +1056,7 @@ export const markets2025: Market[] = [
       { name: 'LLaMA', confidence: 69, stance: 'NO' },
       { name: 'Claude', confidence: 66, stance: 'NO' }
     ],
-    description: 'Market RBLX reach $100 with metaverse platform growth and virtual economy expansion.'
+    description: 'Market RBLX mencapai $100 with metaverse platform growth and virtual economy expansion.'
   },
   {
     id: 'unity-80-2025',
@@ -1086,7 +1086,7 @@ export const markets2025: Market[] = [
       { name: 'Claude', confidence: 71, stance: 'YES' },
       { name: 'Manus', confidence: 68, stance: 'YES' }
     ],
-    description: 'Prediction Deadpool 3 with Hugh Jackman achieve $2B box office with MCU debut.'
+    description: 'Prediction Deadpool 3 with Hugh Jackman mencapai $2B box office with MCU debut.'
   },
   {
     id: 'spotify-sub-500m-2025',
@@ -1100,7 +1100,7 @@ export const markets2025: Market[] = [
       { name: 'Perplexity', confidence: 62, stance: 'YES' },
       { name: 'ChatGPT', confidence: 59, stance: 'YES' }
     ],
-    description: 'Market Spotify reach 500M subs with global expansion and AI-powered recommendations.'
+    description: 'Market Spotify mencapai 500M subs with global expansion and AI-powered recommendations.'
   },
   {
     id: 'disney-200-2025',
@@ -1128,7 +1128,7 @@ export const markets2025: Market[] = [
       { name: 'Perplexity', confidence: 71, stance: 'NO' },
       { name: 'ChatGPT', confidence: 68, stance: 'NO' }
     ],
-    description: 'Market tentang TikTok ban probability with national security concerns vs user backlash.'
+    description: 'Market about TikTok ban probability with national security concerns vs user backlash.'
   },
   {
     id: 'youtube-premium-200m-2025',
@@ -1200,7 +1200,7 @@ export const markets2025: Market[] = [
       { name: 'ChatGPT', confidence: 78, stance: 'YES' },
       { name: 'Perplexity', confidence: 75, stance: 'YES' }
     ],
-    description: 'Prediction Ronaldo reach milestone 1,000 goals with form in Al-Nassr and Portugal.'
+    description: 'Prediction Ronaldo mencapai milestone 1,000 goals with form in Al-Nassr and Portugal.'
   },
   {
     id: 'verstappen-4th-title-2025',
@@ -1372,7 +1372,7 @@ export const markets2025: Market[] = [
       { name: 'LLaMA', confidence: 79, stance: 'NO' },
       { name: 'Claude', confidence: 76, stance: 'NO' }
     ],
-    description: 'Prediction Sony announcing PS6 development even though PS5 still in prime lifecycle.'
+    description: 'Prediction Sony mengumumkan PS6 development meski PS5 masih in prime lifecycle.'
   },
   {
     id: 'microsoft-xbox-handheld-2025',
@@ -1400,7 +1400,7 @@ export const markets2025: Market[] = [
       { name: 'ChatGPT', confidence: 66, stance: 'NO' },
       { name: 'Manus', confidence: 63, stance: 'NO' }
     ],
-    description: 'Prediction Pokemon GO lifetime revenue achieve $2B with AR improvements and new features.'
+    description: 'Prediction Pokemon GO lifetime revenue mencapai $2B with AR improvements and new features.'
   },
   {
     id: 'league-of-legends-worlds-2025',
@@ -1430,11 +1430,11 @@ export const markets2025: Market[] = [
       { name: 'ChatGPT', confidence: 84, stance: 'NO' },
       { name: 'Mistral', confidence: 81, stance: 'NO' }
     ],
-    description: 'Prediction Tesla production scale-up achieve 10M annual deliveries with gigafactory expansion.'
+    description: 'Prediction Tesla production scale-up mencapai 10M annual deliveries with gigafactory expansion.'
   },
   {
     id: 'solar-cost-1cent-2025',
-    title: 'Solar energy cost will below in below $0.01/kWh in 2025?',
+    title: 'Solar energy cost will below in bawah $0.01/kWh in 2025?',
     category: 'Climate',
     yesOdds: 34,
     noOdds: 66,
@@ -1444,7 +1444,7 @@ export const markets2025: Market[] = [
       { name: 'Perplexity', confidence: 68, stance: 'NO' },
       { name: 'Mistral', confidence: 65, stance: 'NO' }
     ],
-    description: 'Market solar cost breakthrough in below 1 cent per kWh with technology improvements.'
+    description: 'Market solar cost breakthrough in bawah 1 cent per kWh with technology improvements.'
   },
   {
     id: 'chatgpt-10-billion-users-2025',
@@ -1458,7 +1458,7 @@ export const markets2025: Market[] = [
       { name: 'ChatGPT', confidence: 73, stance: 'NO' },
       { name: 'Manus', confidence: 70, stance: 'NO' }
     ],
-    description: 'Prediction ChatGPT user growth reach 10B with global expansion and integration everywhere.'
+    description: 'Prediction ChatGPT user growth mencapai 10B with global expansion and integration everywhere.'
   },
   {
     id: 'spacex-mars-mission-2025',

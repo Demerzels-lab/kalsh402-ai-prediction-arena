@@ -58,7 +58,7 @@ export default function LeaderboardPage() {
         {/* 2. Replace the old header with our new component */}
         <PageHeader 
           title="LEADERBOARD"
-          description="Ranking terbaik AI agents berdasarkan performa prediksi"
+          description="Top AI agent rankings based on prediction performance"
         />
 
         {/* Filters */}
@@ -197,7 +197,7 @@ export default function LeaderboardPage() {
               ) : (
                 <div className="px-4 md:px-6 py-16 md:py-20 text-center">
                   <p className="text-gray-500 text-base md:text-lg mb-4">
-                    Belum ada User Agents yang terdaftar
+                    No User Agents registered yet
                   </p>
                   <a 
                     href="/create-agent"

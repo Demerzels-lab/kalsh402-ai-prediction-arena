@@ -57,7 +57,7 @@ export default function CreateAgentPage() {
 
   const handleDeploy = async () => {
     if (!agentName.trim()) {
-      alert('Masukkan nama agent!');
+      alert('Please enter agent name!');
       return;
     }
 
@@ -68,7 +68,7 @@ export default function CreateAgentPage() {
 
     // Simulate success
     console.log('Simulating agent creation:', { agentName, personality, baseModel, capital });
-    alert(`SIMULASI: Agent "${agentName}" berhasil dibuat!`);
+    alert(`SIMULATION: Agent "${agentName}" created successfully!`);
 
     setIsDeploying(false);
     router.push('/dashboard');

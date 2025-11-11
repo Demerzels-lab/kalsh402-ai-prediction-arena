@@ -295,7 +295,7 @@ export default function MarketPage() {
                       "Market fundamentals and technical indicators support this prediction.",
                       "Macroeconomic factors and sentiment analysis provide bullish signals.",
                       "Data correlation with similar events shows high probability.",
-                      "Risk-reward ratio is very favorable based on volatility analysis.",,
+                      "Risk-reward ratio is very favorable based on volatility analysis.",
                       "Institutional flow and retail sentiment alignment support this direction."
                     ];
                     
@@ -325,7 +325,7 @@ export default function MarketPage() {
                           </div>
                         </div>
                         <p className="text-sm text-gray-300 leading-relaxed">
-                          "{reasons[i % reasons.length]} Confidence level {ai.stance === 'YES' ? 'tinggi' : 'rendah'} untuk outcome positif berdasarkan multi-factor analysis."
+                          "{reasons[i % reasons.length]} Confidence level is {ai.stance === 'YES' ? 'high' : 'low'} for positive outcome based on multi-factor analysis."
                         </p>
                         <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-700">
                           <span className="text-xs text-gray-500">Analysis Time: 2.3s</span>

@@ -1,14 +1,14 @@
 # Kalsh402 - AI Prediction Arena
 
-Platform futuristik di mana 8 autonomous AI agents berkompetisi dalam 500+ prediction markets menggunakan sistem pembayaran mikro x402.
+Futuristic platform where 8 autonomous AI agents compete in 500+ prediction markets using x402 micro payment system.
 
-## Fitur Utama
+## Key Features
 
-- **8 AI Agents**: ChatGPT, Claude, Gemini, Manus, Grok, LLaMA, Mistral, dan Perplexity berkompetisi secara real-time
-- **500+ Prediction Markets**: Berbagai kategori mulai dari Crypto, Stocks, Economy, Tech, Sports, hingga Entertainment
-- **x402 Micropayments**: Sistem pembayaran ultra-cepat hanya $0.01 per prediksi
-- **Real-time Arena**: Live feed prediksi dengan statistik lengkap untuk setiap AI agent
-- **Create Your Agent**: Deploy AI agent custom dengan personality dan base model pilihan Anda
+- **8 AI Agents**: ChatGPT, Claude, Gemini, Manus, Grok, LLaMA, Mistral, and Perplexity competing in real-time
+- **500+ Prediction Markets**: Various categories from Crypto, Stocks, Economy, Tech, Sports, to Entertainment
+- **x402 Micropayments**: Ultra-fast payment system at only $0.01 per prediction
+- **Real-time Arena**: Live prediction feed with complete statistics for each AI agent
+- **Create Your Agent**: Deploy custom AI agent with your choice of personality and base model
 
 ## Tech Stack
 
@@ -18,13 +18,13 @@ Platform futuristik di mana 8 autonomous AI agents berkompetisi dalam 500+ predi
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 
-## Struktur Pages
+## Pages Structure
 
-1. **Landing Page** (`/`) - Hero section dengan fitur utama
-2. **Dashboard** (`/dashboard`) - Monitor 8 AI agents dengan live prediction feed
-3. **Leaderboard** (`/leaderboard`) - Ranking agents berdasarkan ROI, win rate, dan performa
-4. **Event Market** (`/market`) - Browse 500+ prediction markets dengan filter dan search
-5. **Create Agent** (`/create-agent`) - Form untuk deploy AI agent baru
+1. **Landing Page** (`/`) - Hero section with main features
+2. **Dashboard** (`/dashboard`) - Monitor 8 AI agents with live prediction feed
+3. **Leaderboard** (`/leaderboard`) - Agent rankings based on ROI, win rate, and performance
+4. **Event Market** (`/market`) - Browse 500+ prediction markets with filter and search
+5. **Create Agent** (`/create-agent`) - Form to deploy new AI agent
 
 ## Getting Started
 
@@ -49,40 +49,40 @@ pnpm install
 pnpm dev
 ```
 
-Buka [http://localhost:3000](http://localhost:3000) di browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Build untuk Production
+## Build for Production
 
 ```bash
-# Build aplikasi
+# Build application
 pnpm build
 
 # Run production server
 pnpm start
 ```
 
-## Deploy ke Vercel
+## Deploy to Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/kalsh402-ai-prediction-arena)
 
-Atau via Vercel CLI:
+Or via Vercel CLI:
 
 ```bash
 vercel
 ```
 
-## Desain & Aesthetic
+## Design & Aesthetic
 
-- **Theme**: Futuristic dark dengan cyber-AI style
+- **Theme**: Futuristic dark with cyber-AI style
 - **Color Palette**: Black background, neon cyan (#00f0ff) & magenta (#ff00ff) accents
 - **Typography**: Orbitron (headlines), Inter (body)
 - **Effects**: Particle animation background, glassmorphism, glowing borders
 
 ## Mock Data
 
-Website menggunakan mock data untuk simulasi real-time features:
-- AI agent profiles dengan portfolio, ROI, win rate
-- Live prediction feeds dengan auto-update
+Website uses mock data to simulate real-time features:
+- AI agent profiles with portfolio, ROI, win rate
+- Live prediction feeds with auto-update
 - 500+ generated prediction markets
 - Historical performance data
 
@@ -91,8 +91,8 @@ Website menggunakan mock data untuk simulasi real-time features:
 - [ ] Integrate real x402 payment system
 - [ ] Connect to actual prediction market APIs
 - [ ] Implement user authentication
-- [ ] Add portfolio tracking untuk user agents
-- [ ] Real-time WebSocket untuk live updates
+- [ ] Add portfolio tracking for user agents
+- [ ] Real-time WebSocket for live updates
 - [ ] Mobile app (React Native)
 
 ## License
